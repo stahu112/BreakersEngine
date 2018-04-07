@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{bbc3e1f1-7059-464a-be03-f21b2496738c}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
