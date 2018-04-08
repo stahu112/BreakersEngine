@@ -13,7 +13,7 @@ namespace BE
 			unsigned int height;
 			bool fullscreen;
 
-			WindowSettings(unsigned int w = 1920, unsigned int h = 1080, bool full = false) : width(w), height(h), fullscreen(full) {}
+			WindowSettings(unsigned int w = 1366, unsigned int h = 768, bool full = false) : width(w), height(h), fullscreen(full) {}
 			
 		};
 

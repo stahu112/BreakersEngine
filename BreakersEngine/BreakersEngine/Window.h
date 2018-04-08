@@ -9,20 +9,20 @@ namespace BE
 	class Window
 	{
 
-		std::unique_ptr<sf::RenderWindow> window;
+		sf::RenderWindow window;
 
 	public:
 
-		bool isOpen() { return window->isOpen(); }
-		void draw(sf::Drawable& draw) { window->draw(draw); }
-		void close() { window->close(); }
-		void clear(const sf::Color col = sf::Color::White) { window->clear(col); }
-		void display() { window->display(); }
+		bool isOpen() { return window.isOpen(); }
+		void draw(sf::Drawable& draw) { window.draw(draw); }
+		void close() { window.close(); }
+		void clear(const sf::Color col = sf::Color::White) { window.clear(col); }
+		void display() { window.display(); }
 
-		bool pollEvent(sf::Event &e) { return window->pollEvent(e); }
+		bool pollEvent(sf::Event &e) { return window.pollEvent(e); }
 
 		Window(System::Settings set = System::Settings{});
-		~Window();
+		~Window() { window.close(); };
 	};
 
 } //End namespace BE

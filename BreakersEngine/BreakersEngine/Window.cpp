@@ -8,13 +8,9 @@ namespace BE
 		unsigned int w = set.getWindowSettings().width, h = set.getWindowSettings().height;
 
 		if (set.getWindowSettings().fullscreen)
-			window = std::make_unique<sf::RenderWindow>(sf::VideoMode(w, h), "Breaker", sf::Style::Fullscreen | sf::Style::Default);
+			window.create(sf::VideoMode(w, h), "Breaker", sf::Style::Fullscreen | sf::Style::Default);
 		else
-			window = std::make_unique<sf::RenderWindow>(sf::VideoMode(w, h), "Breaker", sf::Style::Default);
-	}
-
-	Window::~Window()
-	{
+			window.create(sf::VideoMode(w, h), "Breaker", sf::Style::Default);
 	}
 
 } //End namespace BE
