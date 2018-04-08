@@ -92,7 +92,7 @@ namespace BE
 				return ret;
 			}
 
-			RenderSettings(sf::Color col = sf::Color::White, bool db = false, bool vs = false, unsigned int fps = 60) :
+			RenderSettings(sf::Color col = sf::Color::White, bool db = false, bool vs = true, unsigned int fps = 60) :
 				clearColor(col), doubleBuffering(db), verticalSync(vs), fpsLimit(fps) {}
 		};
 

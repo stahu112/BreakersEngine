@@ -4,6 +4,8 @@
 #include <stack>
 #include "Settings.h"
 #include "Window.h"
+#include "Time.h"
+#include <thread>
 
 namespace BE
 {
@@ -24,7 +26,7 @@ namespace BE
 			{
 				settings.renderSettings.clearColor = sf::Color::Green;
 				settings.windowSettings.setWindowSettings(1920, 1080, true);
-				settings.renderSettings.fpsLimit = 0;
+				settings.renderSettings.fpsLimit = 60;
 				settings.renderSettings.verticalSync = 1;
 				std::cout << settings.stringify() << std::endl;
 			}

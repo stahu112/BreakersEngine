@@ -8,8 +8,15 @@ namespace BE
 		{
 			window = std::make_unique<Window>(settings);
 
+			sf::Clock dtClock;
+			sf::Time dt;
 			while (window->isOpen())
 			{
+				
+				dt = dtClock.restart();
+				Time::dt = dt.asSeconds();
+				Time::fps = 1 / dt.asSeconds();
+
 				sf::Event e;
 				while (window->pollEvent(e))
 				{
