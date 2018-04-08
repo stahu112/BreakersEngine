@@ -18,36 +18,33 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Settings.cpp">
+    <ClCompile Include="System\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="System\Settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
+    <ClCompile Include="GUI\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Settings.h">
+    <ClInclude Include="System\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SettingsTest.h">
+    <ClInclude Include="System\Settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="System\SettingsTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application.h">
+    <ClInclude Include="System\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SettingsTypes.h">
+    <ClInclude Include="GUI\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="csv.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="Tests\SettingsTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

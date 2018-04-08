@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Settings.h"
+#include "../System/Settings.h"
 #include <SFML\Graphics.hpp>
 #include <memory>
 

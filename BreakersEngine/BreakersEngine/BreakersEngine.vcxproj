@@ -19,19 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="GUI\Window.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Settings.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="System\Application.cpp" />
+    <ClCompile Include="System\Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="csv.h" />
-    <ClInclude Include="Settings.h" />
-    <ClInclude Include="SettingsTest.h" />
-    <ClInclude Include="SettingsTypes.h" />
-    <ClInclude Include="Time.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="GUI\Window.h" />
+    <ClInclude Include="System\Application.h" />
+    <ClInclude Include="System\Settings.h" />
+    <ClInclude Include="System\SettingsTypes.h" />
+    <ClInclude Include="System\Time.h" />
+    <ClInclude Include="Tests\SettingsTest.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{bbc3e1f1-7059-464a-be03-f21b2496738c}</ProjectGuid>

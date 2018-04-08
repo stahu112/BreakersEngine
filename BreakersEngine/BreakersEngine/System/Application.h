@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stack>
 #include "Settings.h"
-#include "Window.h"
+#include "../GUI/Window.h"
 #include "Time.h"
 #include <thread>
 
