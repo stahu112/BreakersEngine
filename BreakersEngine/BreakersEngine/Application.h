@@ -20,6 +20,15 @@ namespace BE
 
 			Settings getSettings() const { return settings; }
 
+			void test()
+			{
+				settings.renderSettings.clearColor = sf::Color::Green;
+				settings.windowSettings.setWindowSettings(1920, 1080, true);
+				settings.renderSettings.fpsLimit = 0;
+				settings.renderSettings.verticalSync = 1;
+				std::cout << settings.stringify() << std::endl;
+			}
+
 			Application();
 			~Application();
 		

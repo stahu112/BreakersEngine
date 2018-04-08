@@ -16,7 +16,7 @@ namespace BE
 					if (e.type == sf::Event::Closed) window->close();
 				}
 
-				window->clear(sf::Color::Green);
+				window->clear();
 				window->display();
 			}
 		}

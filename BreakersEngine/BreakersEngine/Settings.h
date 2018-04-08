@@ -1,32 +1,21 @@
 #pragma once
 
 #include <string>
+#include "SettingsTypes.h"
 
 namespace BE
 {
 	namespace System
 	{
-		
-		struct WindowSettings
-		{
-			unsigned int width;
-			unsigned int height;
-			bool fullscreen;
-
-			WindowSettings(unsigned int w = 1366, unsigned int h = 768, bool full = false) : width(w), height(h), fullscreen(full) {}
-			
-		};
-
 		class Settings
 		{
-			WindowSettings windowSettings{};
-
 		public:
 			//TODO ParseSettings
-			Settings(WindowSettings winSet = WindowSettings{});
+			Settings(WindowSettings winSet = WindowSettings{}, RenderSettings ren = RenderSettings{});
 			~Settings();
-			
-			WindowSettings getWindowSettings() const {return windowSettings;}
+
+			WindowSettings windowSettings{};
+			RenderSettings renderSettings{};
 
 			std::string stringify();
 		};

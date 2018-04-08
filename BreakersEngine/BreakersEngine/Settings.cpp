@@ -6,18 +6,19 @@ namespace BE {
 
 		std::string Settings::stringify()
 		{
-			std::string ret;
-
-			ret += std::to_string(windowSettings.width) + "x" + std::to_string(windowSettings.height);
-
-			windowSettings.fullscreen ? ret += " | Fullscreen" : ret += "";
+			std::string ret{};
+			ret += "Current settings";
+			ret += windowSettings.stringify();
+			ret += renderSettings.stringify();
 
 			return ret;
 		}
 
-		Settings::Settings(WindowSettings win)
+		//TODO parse touple with settings
+		Settings::Settings(WindowSettings win, RenderSettings ren)
 		{
 			windowSettings = win;
+			renderSettings = ren;
 		}
 
 

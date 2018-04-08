@@ -10,18 +10,25 @@ namespace BE
 	{
 
 		sf::RenderWindow window;
+		System::Settings set;
 
+		void init(System::Settings sets = System::Settings{});
+	
 	public:
 
 		bool isOpen() { return window.isOpen(); }
 		void draw(sf::Drawable& draw) { window.draw(draw); }
 		void close() { window.close(); }
-		void clear(const sf::Color col = sf::Color::White) { window.clear(col); }
+		void clear() { window.clear(set.renderSettings.clearColor); }
 		void display() { window.display(); }
+
+		//Use when settings that need window to be reset had changed
+		void reset(System::Settings sets);
 
 		bool pollEvent(sf::Event &e) { return window.pollEvent(e); }
 
-		Window(System::Settings set = System::Settings{});
+
+		Window(System::Settings sets = System::Settings{});
 		~Window() { window.close(); };
 	};
 

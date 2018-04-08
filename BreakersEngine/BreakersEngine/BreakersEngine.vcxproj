@@ -28,6 +28,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="SettingsTest.h" />
+    <ClInclude Include="SettingsTypes.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
