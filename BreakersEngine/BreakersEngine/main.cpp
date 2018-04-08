@@ -11,9 +11,9 @@ int main()
 
 	std::cout << app.getSettings().stringify() << std::endl;
 	int timer = 1;
-	int time = 5;
-		std::cout << std::endl;
-		std::cout << "Settings should change after " << time << " seconds";
+	int time = 15;
+	std::cout << std::endl;
+	std::cout << "Settings should change after " << time << " seconds";
 
 	while (timer < time)
 	{
