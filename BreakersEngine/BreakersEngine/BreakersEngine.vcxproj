@@ -30,7 +30,6 @@
     <ClInclude Include="System\Settings.h" />
     <ClInclude Include="System\SettingsTypes.h" />
     <ClInclude Include="System\Time.h" />
-    <ClInclude Include="Tests\SettingsTest.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{bbc3e1f1-7059-464a-be03-f21b2496738c}</ProjectGuid>
