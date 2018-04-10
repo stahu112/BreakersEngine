@@ -1,10 +1,25 @@
 #include "gtest/gtest.h"
-//#include "../BreakersEngine/System/Settings.h"
+#include "../BreakersEngine/System/Settings.h"
+#include <thread>
 
-TEST(SquareTests, Square)
+TEST(TestSettings, DefaultFpsLimit)
 {
-	//BE::System::Settings set{};
+	BE::System::Settings set{};
 
-	EXPECT_EQ(60, 1);//set.renderSettings.fpsLimit);
-	EXPECT_EQ(30, 30);//set.renderSettings.fpsLimit);
+	EXPECT_EQ(60, set.renderSettings.fpsLimit);
+}
+
+TEST(TestSettings, DefaultWindowSize)
+{
+	BE::System::Settings set{};
+
+	EXPECT_EQ(1366, set.windowSettings.width);
+	EXPECT_EQ(768, set.windowSettings.height);
+}
+
+TEST(TestSettings, DefaultClearColor)
+{
+	BE::System::Settings set{};
+
+	EXPECT_EQ(sf::Color::White, set.renderSettings.clearColor);
 }
