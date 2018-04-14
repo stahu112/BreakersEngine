@@ -2,6 +2,7 @@
 #include <thread>
 #include <cstdlib>
 #include "System/Application.h"
+#include <boost\lexical_cast.hpp>
 
 using namespace BE;
 
@@ -10,6 +11,7 @@ int main()
 	System::Application app{};
 	
 	std::cout << app.getSettings().stringify() << std::endl;
+	std::cout << boost::lexical_cast<int>("2137") << std::endl;
 /*	int timer = 1;
 	int time = 15;
 	std::cout << std::endl;

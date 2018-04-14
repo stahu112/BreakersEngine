@@ -6,7 +6,7 @@ TEST(TestSettings, DefaultFpsLimit)
 {
 	BE::System::Settings set{};
 
-	EXPECT_EQ(60, set.renderSettings.fpsLimit);
+	EXPECT_EQ(30, set.renderSettings.fpsLimit);
 }
 
 TEST(TestSettings, DefaultWindowSize)
