@@ -26,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI\Window.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="System\Application.h" />
     <ClInclude Include="System\Settings.h" />
     <ClInclude Include="System\SettingsTypes.h" />
