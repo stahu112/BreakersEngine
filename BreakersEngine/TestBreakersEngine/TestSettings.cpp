@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "../BreakersEngine/System/Settings.h"
 #include <thread>
+#include "../BreakersEngine/Logger.h"
 
 using namespace testing;
 
@@ -29,5 +30,5 @@ TEST_F(TestSettings, DefaultClearColor)
 
 TEST_F(TestSettings, TestStringify)
 {
-	std::cout << set.stringify() << std::endl;
+	BE::Logger::log(set.stringify());
 }

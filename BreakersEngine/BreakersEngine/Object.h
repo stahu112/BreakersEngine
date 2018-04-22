@@ -6,26 +6,19 @@ namespace BE
 {
 	class Object
 	{
-		static unsigned int globalCount;
 
 		std::string tag{ "" };
 
 	public:
 
-		Object()
-		{
-			globalCount++;
-		}
+		Object(std::string tag_ = "NewObject") : tag(tag_) {}
 		~Object()
 		{
 			onDestroy();
-			globalCount--;
 		}
 
 		std::string getTag() const { return tag; }
 		void setTag(std::string str) { tag = str; }
-
-		void destroy() { delete this; }
 
 		virtual void onInit() {}
 		virtual void update() {}

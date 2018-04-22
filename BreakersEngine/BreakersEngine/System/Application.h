@@ -1,8 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include <stack>
+#include "../ObjectManager.h"
 #include "Settings.h"
+#include "../Logger.h"
 #include "../GUI/Window.h"
 #include "Time.h"
 #include <thread>
@@ -17,15 +18,15 @@ namespace BE
 			Settings settings{};
 
 		public:
-			
+
 			void run();
 
 			Settings getSettings() const { return settings; }
 
 			Application();
-			~Application();
-		
+			~Application() { ObjectManager::get().destroyAllObjects(); Logger::log(); }
+
 		};
-	
+
 	} //End namespace System
 } //End namespace BE

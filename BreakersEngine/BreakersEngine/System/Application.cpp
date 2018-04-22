@@ -10,9 +10,10 @@ namespace BE
 
 			sf::Clock dtClock;
 			sf::Time dt;
+
 			while (window->isOpen())
 			{
-				
+
 				dt = dtClock.restart();
 				Time::dt = dt.asSeconds();
 				Time::fps = 1 / dt.asSeconds();
@@ -31,11 +32,6 @@ namespace BE
 		Application::Application()
 		{
 			//TODO parse settings from file
-		}
-
-
-		Application::~Application()
-		{
 		}
 
 	} //End namespace System
