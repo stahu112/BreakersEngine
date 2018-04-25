@@ -40,15 +40,6 @@ namespace BE
 			unsigned int height;
 			bool fullscreen;
 
-			void setWindowSettings(unsigned int w, unsigned int h, bool full)
-			{
-				width = w;
-				height = h;
-				fullscreen = full;
-
-				//TODO emit signal here that those had changed
-			}
-
 			std::string stringify() override
 			{
 				std::string ret{};
@@ -68,10 +59,10 @@ namespace BE
 		//RenderSettings
 		struct RenderSettings : public SettingsInterface
 		{
+		
 			sf::Color clearColor;
 			bool doubleBuffering;
 			bool verticalSync;
-
 			unsigned int fpsLimit;
 
 			std::string stringify() override 

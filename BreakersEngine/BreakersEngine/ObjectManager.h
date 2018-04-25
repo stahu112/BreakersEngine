@@ -17,8 +17,6 @@ namespace BE
 		ObjectManager(ObjectManager const&) = delete;
 		void operator=(ObjectManager const&) = delete;
 
-
-
 		static ObjectManager& get()
 		{
 			static ObjectManager instance;

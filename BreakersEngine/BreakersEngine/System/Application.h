@@ -21,7 +21,7 @@ namespace BE
 
 			void run();
 
-			Settings getSettings() const { return settings; }
+			Settings getSettings() { return settings; }
 
 			Application();
 			~Application() { ObjectManager::get().destroyAllObjects(); Logger::log(); }

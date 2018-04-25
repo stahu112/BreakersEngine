@@ -9,3 +9,12 @@ public:
 	BE::Object obj{};
 
 };
+
+TEST_F(TestObject, CheckDefaultEmptyVirtualInterfacesExist)
+{
+	obj.fixedUpdate();
+	obj.lateUpdate();
+	obj.onDestroy();
+	obj.update();
+	obj.onInit();
+}
