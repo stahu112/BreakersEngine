@@ -1,8 +1,10 @@
 #include "Logger.h"
 
+#define DEBUG
+
 void BE::Logger::log(const std::string& msg)
 {
-	static Logger instance;
+#ifdef DEBUG
 	std::string ret{ "" };
 
 	if (msg != "===LOG END===") ret += "LOG: ";
@@ -25,6 +27,7 @@ void BE::Logger::log(const std::string& msg)
 
 		saveLog("Log " + str, logFile);
 	}
+#endif
 }
 
 void BE::Logger::saveLog(const std::string& filename, const std::string& logFileString)

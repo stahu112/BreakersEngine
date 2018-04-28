@@ -153,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="TestApplication.cpp" />
     <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="TestObjectManager.cpp" />
     <ClCompile Include="TestSettings.cpp" />

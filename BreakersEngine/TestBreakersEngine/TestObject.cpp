@@ -7,7 +7,6 @@ class TestObject : public Test
 {
 public:
 	BE::Object obj{};
-
 };
 
 TEST_F(TestObject, CheckDefaultEmptyVirtualInterfacesExist)

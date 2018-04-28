@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Logger.h"
 
 namespace BE
 {
 	class Object
 	{
-
 		std::string tag{ "" };
 
 	public:
@@ -20,10 +20,10 @@ namespace BE
 		std::string getTag() const { return tag; }
 		void setTag(std::string str) { tag = str; }
 
-		virtual void onInit() {}
+		virtual void onInit() { BE::Logger::log("onInit: " + this->tag); }
 		virtual void update() {}
 		virtual void fixedUpdate() {}
 		virtual void lateUpdate() {}
-		virtual void onDestroy() {}
+		virtual void onDestroy() { BE::Logger::log("onDestroy: " + this->tag); }
 	};
 }

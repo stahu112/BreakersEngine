@@ -24,7 +24,7 @@ namespace BE
 			Settings getSettings() { return settings; }
 
 			Application();
-			~Application() { ObjectManager::get().destroyAllObjects(); Logger::log(); }
+			~Application() { Logger::log(); }
 
 		};
 

@@ -7,65 +7,60 @@ using namespace BE;
 class TestObjectManager : public Test
 {
 public:
+	ObjectManager objectManager{ "TestManager" };
 
 };
 
-TEST_F(TestObjectManager, SuccesfullGetInstance)
-{
-	ObjectManager::get();
-}
-
 TEST_F(TestObjectManager, AddAndDestroyAllObjectsTest)
 {
-	ASSERT_EQ(ObjectManager::get().objectCount(), 0);
-	Object obj{};
-	ObjectManager::get().addObject(obj);
-	ObjectManager::get().addObject(obj);
-	ObjectManager::get().addObject(obj);
-	ASSERT_EQ(ObjectManager::get().objectCount(), 3);
-	ObjectManager::get().destroyAllObjects();
+	ASSERT_EQ(objectManager.objectCount(), 0);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
+	ASSERT_EQ(objectManager.objectCount(), 3);
 
-	ASSERT_EQ(ObjectManager::get().objectCount(), 0);
+	//objectManager.destroyAllObjects();
 }
 
 TEST_F(TestObjectManager, TestDestroyObjectByTag)
 {
-	ASSERT_EQ(ObjectManager::get().objectCount(), 0);
-	Object obj{};
-	ObjectManager::get().addObject(obj);
-	ASSERT_EQ(ObjectManager::get().objectCount(), 1);
-	ObjectManager::get().destroyObjectByTag("NewObject");
-	ASSERT_EQ(ObjectManager::get().objectCount(), 0);
+	ASSERT_EQ(objectManager.objectCount(), 0);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
+	ASSERT_EQ(objectManager.objectCount(), 2);
+
+	objectManager.destroyObjectByTag("NewObject");
+	ASSERT_EQ(objectManager.objectCount(), 1);
+
+	ASSERT_NE(nullptr, objectManager.getObjectByTag("NewObject1"));
 }
 
 TEST_F(TestObjectManager, AddThenGetObjectTest)
 {
-	Object obj{};
-	ObjectManager::get().addObject(obj);
-	Object* ptr = ObjectManager::get().getObjectByTag("NewObject");
+	objectManager.addObject(new Object);
+	Object* ptr = objectManager.getObjectByTag("NewObject");
 
 	ASSERT_NE(ptr, nullptr);
-	ObjectManager::get().destroyAllObjects();
+
 }
 
 TEST_F(TestObjectManager, AddObjectWithTheSameTag)
 {
-	Object obj{};
-	ObjectManager::get().addObject(obj);
-	ObjectManager::get().addObject(obj);
-	ObjectManager::get().addObject(obj);
-	ObjectManager::get().addObject(obj);
-	ObjectManager::get().addObject(obj);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
+	objectManager.addObject(new Object);
 
-	auto itStart = ObjectManager::get().it_begin();
+	auto itStart = objectManager.it_begin();
 
-	auto itEnd = ObjectManager::get().it_end();
+	auto itEnd = objectManager.it_end();
 
 	while (itStart != itEnd)
 	{
 		std::string buf = itStart->first;
+		Logger::log(itStart->first);
 		itStart++;
 		ASSERT_NE(itStart->first, buf);
 	}
-	ObjectManager::get().destroyAllObjects();
 }

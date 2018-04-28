@@ -11,9 +11,10 @@ namespace BE
 {
 	class Logger
 	{
+		static void saveLog(const std::string& filename, const std::string& logFileString);
 	public:
 		static void log(const std::string& msg = "===LOG END===");
-		static void saveLog(const std::string& filename, const std::string& logFileString);
+
 
 	};
 
