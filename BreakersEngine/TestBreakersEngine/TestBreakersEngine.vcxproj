@@ -124,7 +124,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;../BreakersEngine/Release/Application.obj;../BreakersEngine/Release/Window.obj;../BreakersEngine/Release/Settings.obj;../BreakersEngine/Release/Object.obj;../BreakersEngine/Release/ObjectManager.obj;../BreakersEngine/Release/Logger.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;../BreakersEngine/Release/Application.obj;../BreakersEngine/Release/Window.obj;../BreakersEngine/Release/Settings.obj;../BreakersEngine/Release/Object.obj;../BreakersEngine/Release/ObjectManager.obj;../BreakersEngine/Release/Logger.obj;../BreakersEngine/Release/Scene.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,8 +153,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestAppliaction.cpp" />
     <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="TestObjectManager.cpp" />
+    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TestSettings.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -5,15 +5,11 @@ using namespace testing;
 
 class TestObject : public Test
 {
+
 public:
 	BE::Object obj{};
 };
 
-TEST_F(TestObject, CheckDefaultEmptyVirtualInterfacesExist)
+TEST_F(TestObject, CheckDestructor)
 {
-	obj.fixedUpdate();
-	obj.lateUpdate();
-	obj.onDestroy();
-	obj.update();
-	obj.onInit();
 }

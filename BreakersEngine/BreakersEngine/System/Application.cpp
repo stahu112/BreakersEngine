@@ -6,12 +6,13 @@ namespace BE
 	{
 		void Application::run()
 		{
+			running = true;
 			window = std::make_unique<Window>(settings);
 
 			sf::Clock dtClock;
 			sf::Time dt;
 
-			while (window->isOpen())
+			while (running)
 			{
 
 				dt = dtClock.restart();
@@ -21,12 +22,20 @@ namespace BE
 				sf::Event e;
 				while (window->pollEvent(e))
 				{
-					if (e.type == sf::Event::Closed) window->close();
+					if (e.type == sf::Event::Closed) exit();
 				}
 
 				window->clear();
 				window->display();
 			}
+
+		}
+
+		void Application::exit()
+		{
+			//TODO Save or stuff
+			running = false;
+			window->close();
 		}
 
 		Application::Application()

@@ -4,8 +4,6 @@ using namespace BE;
 
 int main()
 {
-	System::Application app{};
-
-	app.run();
+	System::Application::get()->run();
 	return EXIT_SUCCESS;
 }

@@ -14,9 +14,9 @@ public:
 TEST_F(TestObjectManager, AddAndDestroyAllObjectsTest)
 {
 	ASSERT_EQ(objectManager.objectCount(), 0);
-	objectManager.addObject(new Object);
-	objectManager.addObject(new Object);
-	objectManager.addObject(new Object);
+	objectManager.addObject(new Object{ "Dupa" });
+	objectManager.addObject(new Object{ "Dupa" });
+	objectManager.addObject(new Object{ "DupaBlada" });
 	ASSERT_EQ(objectManager.objectCount(), 3);
 
 	//objectManager.destroyAllObjects();
@@ -38,7 +38,7 @@ TEST_F(TestObjectManager, TestDestroyObjectByTag)
 TEST_F(TestObjectManager, AddThenGetObjectTest)
 {
 	objectManager.addObject(new Object);
-	Object* ptr = objectManager.getObjectByTag("NewObject");
+	auto ptr = objectManager.getObjectByTag("NewObject");
 
 	ASSERT_NE(ptr, nullptr);
 
@@ -46,21 +46,17 @@ TEST_F(TestObjectManager, AddThenGetObjectTest)
 
 TEST_F(TestObjectManager, AddObjectWithTheSameTag)
 {
-	objectManager.addObject(new Object);
-	objectManager.addObject(new Object);
-	objectManager.addObject(new Object);
-	objectManager.addObject(new Object);
-	objectManager.addObject(new Object);
+	for (int i = 0; i < 100; i++)
+		objectManager.addObject(new Object);
 
-	auto itStart = objectManager.it_begin();
+	objectManager.destroyAllObjects();
+}
 
-	auto itEnd = objectManager.it_end();
+TEST_F(TestObjectManager, CanUseObjectsVirtualFunctions)
+{
+	for (int i = 0; i < 10; i++)
+		objectManager.addObject(new Object);
 
-	while (itStart != itEnd)
-	{
-		std::string buf = itStart->first;
-		Logger::log(itStart->first);
-		itStart++;
-		ASSERT_NE(itStart->first, buf);
-	}
+	objectManager.callUpdate();
+	objectManager.callLateUpdate();
 }

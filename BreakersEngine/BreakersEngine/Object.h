@@ -7,6 +7,7 @@ namespace BE
 {
 	class Object
 	{
+		friend class ObjectManager;
 		std::string tag{ "" };
 
 	public:
@@ -20,10 +21,11 @@ namespace BE
 		std::string getTag() const { return tag; }
 		void setTag(std::string str) { tag = str; }
 
-		virtual void onInit() { BE::Logger::log("onInit: " + this->tag); }
+	protected:
+		virtual void onInit() { Logger::log(tag + " Initiated"); }
 		virtual void update() {}
 		virtual void fixedUpdate() {}
 		virtual void lateUpdate() {}
-		virtual void onDestroy() { BE::Logger::log("onDestroy: " + this->tag); }
+		virtual void onDestroy() { Logger::log(tag + " Destroyed"); }
 	};
 }
