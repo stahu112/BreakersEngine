@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include "Logger.h"
+#include "Exceptions.h"
 
 namespace BE
 {
@@ -28,20 +29,10 @@ namespace BE
 		void callUpdate();
 		void callLateUpdate();
 
-		Object * getObjectByTag(std::string tag_)
-		{
-			Logger::log("From: " + this->tag + ": Get by tag: " + tag_);
-			return objectMap.at(tag_);
-		}
+		Object * getObjectByTag(std::string tag_);
 
-		void destroyObjectByTag(std::string tag_) {
-			delete objectMap.at(tag_);
-			objectMap.erase(tag_);
-		}
-		unsigned int objectCount() {
-			Logger::log("Object count of: " + this->tag + " = " + std::to_string(objectMap.size()));
-			return objectMap.size();
-		}
+		void destroyObjectByTag(std::string tag_);
+		unsigned int objectCount();
 	};
 
 } //End namespace BE

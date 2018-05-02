@@ -13,3 +13,8 @@ TEST_F(TestApp, SuccessfullyGetInstance)
 {
 	Application::get();
 }
+
+TEST_F(TestApp, Test1)
+{
+
+}

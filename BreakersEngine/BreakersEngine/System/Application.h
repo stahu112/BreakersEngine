@@ -7,34 +7,23 @@
 #include "../GUI/Window.h"
 #include "Time.h"
 #include <thread>
-#include "../Scene.h"
+#include "../SceneManager.h"
 
 namespace BE
 {
 	namespace System
 	{
 
-		class SceneManager
-		{
-			std::map<std::string, Scene*> sceneMap;
-
-			Scene* currentScene;
-
-		public:
-			SceneManager(Scene* scn) : currentScene(scn) {
-				//std::make_pair(scn.getTag)
-			}
-
-		};
-
 		class Application
 		{
 			std::unique_ptr<Window> window;
 			Settings settings{};
 
+			//TODO Make a struture with app specific settings
 			bool running{ false };
 
 		public:
+			//Delete coput constr. and assign operator
 			Application(Application const&) = delete;
 			void operator=(Application const&) = delete;
 
@@ -45,6 +34,8 @@ namespace BE
 
 			void run();
 			void exit();
+
+			SceneManager sceneManager{};
 
 			Settings getSettings() { return settings; }
 

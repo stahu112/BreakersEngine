@@ -25,3 +25,9 @@ TEST_F(TestScene, SceneHasObjectManagerAndCanPerformActionsOnIt)
 	scene.objectManager->destroyAllObjects();
 	ASSERT_EQ(0, scene.objectManager->objectCount());
 }
+
+TEST_F(TestScene, SceneHasVirtualInterfaces)
+{
+	scene.initScene();
+	scene.onChangeScene();
+}

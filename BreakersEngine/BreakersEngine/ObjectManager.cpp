@@ -35,6 +35,30 @@ void BE::ObjectManager::callLateUpdate()
 	}
 }
 
+BE::Object * BE::ObjectManager::getObjectByTag(std::string tag_)
+{
+	if (objectMap.find(tag_) != objectMap.end())
+	{
+		Logger::log("From: " + this->tag + ": Get by tag: " + tag_);
+		return objectMap.at(tag_);
+	}
+	else
+	{
+		Logger::log("From: " + this->tag + ": no object with tag: " + tag_);
+		throw Exceptions::EXObjectWithTagNotFound{};
+	}
+}
+
+void BE::ObjectManager::destroyObjectByTag(std::string tag_) {
+	delete objectMap.at(tag_);
+	objectMap.erase(tag_);
+}
+
+unsigned int BE::ObjectManager::objectCount() {
+	Logger::log("Object count of: " + this->tag + " = " + std::to_string(objectMap.size()));
+	return objectMap.size();
+}
+
 void BE::ObjectManager::destroyAllObjects()
 {
 	auto beg = it_begin();
