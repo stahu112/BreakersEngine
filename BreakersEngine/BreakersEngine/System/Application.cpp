@@ -25,6 +25,8 @@ namespace BE
 					if (e.type == sf::Event::Closed) exit();
 				}
 
+
+
 				window->clear();
 				window->display();
 			}

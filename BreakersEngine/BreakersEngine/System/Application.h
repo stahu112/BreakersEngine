@@ -16,13 +16,13 @@ namespace BE
 
 		class Application
 		{
-			std::unique_ptr<Window> window;
 			Settings settings{};
 
 			//TODO Make a struture with app specific settings
 			bool running{ false };
 
 		public:
+			std::unique_ptr<Window> window;
 			//Delete coput constr. and assign operator
 			Application(Application const&) = delete;
 			void operator=(Application const&) = delete;

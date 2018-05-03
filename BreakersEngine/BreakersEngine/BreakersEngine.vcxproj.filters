@@ -42,6 +42,9 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SceneState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System\Application.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Exceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

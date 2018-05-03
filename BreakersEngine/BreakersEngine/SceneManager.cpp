@@ -1,6 +1,6 @@
 #include "SceneManager.h"
 
-void BE::SceneManager::addScene(Scene * scn, bool overwrite) {
+void BE::SceneManager::addScene(std::shared_ptr<Scene> scn, bool overwrite) {
 
 	if (sceneMap.find(scn->getTag()) == sceneMap.end())
 	{
@@ -15,8 +15,7 @@ void BE::SceneManager::addScene(Scene * scn, bool overwrite) {
 		}
 		else
 		{
-			delete sceneMap.at(scn->getTag());
-			sceneMap.at(scn->getTag()) = scn;
+			sceneMap.at(scn->getTag()).reset(scn.get());
 			Logger::log("Overwrited " + scn->getTag() + " scene");
 		}
 	}
@@ -32,7 +31,8 @@ void BE::SceneManager::changeScene(std::string str)
 	else
 	{
 		currentScene->onChangeScene();
-		currentScene = sceneMap.at(str);
+		currentScene.release();
+		currentScene.reset(sceneMap.at(str).get());
 		currentScene->initScene();
 	}
 }

@@ -26,6 +26,7 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SceneState.cpp" />
     <ClCompile Include="System\Application.cpp" />
     <ClCompile Include="System\Settings.cpp" />
   </ItemGroup>
@@ -37,6 +38,7 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneState.h" />
     <ClInclude Include="System\Application.h" />
     <ClInclude Include="System\Settings.h" />
     <ClInclude Include="System\SettingsTypes.h" />

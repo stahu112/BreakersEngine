@@ -6,12 +6,13 @@ using namespace testing;
 class TestSceneManager : public Test
 {
 public:
-	BE::SceneManager sm{ new BE::Scene {"PlaceHolderScene"} };
+	BE::SceneManager sm{ };
 };
 
 TEST_F(TestSceneManager, CheckIfManagerHasPlaceHolderScene)
 {
-	ASSERT_NE(nullptr, sm.getCurrentScene());
+	std::cout << (sm.currentScene->getTag());
+	ASSERT_EQ("PlaceHolderScene", sm.currentScene->getTag());
 }
 
 TEST_F(TestSceneManager, TestAddScene)
@@ -19,7 +20,7 @@ TEST_F(TestSceneManager, TestAddScene)
 	ASSERT_EQ(sm.getSceneCount(), 1);
 	for (int i = 0; i < 10; i++)
 	{
-		sm.addScene(new BE::Scene{ "TestScene" + std::to_string(i) });
+		sm.addScene(std::make_unique<BE::Scene>("TestScene" + std::to_string(i)));
 	}
 
 	ASSERT_EQ(sm.getSceneCount(), 11);
@@ -27,7 +28,7 @@ TEST_F(TestSceneManager, TestAddScene)
 
 TEST_F(TestSceneManager, TestChangeScene)
 {
-	sm.addScene(new BE::Scene{ "TestScene" });
+	sm.addScene(std::make_unique<BE::Scene>("TestScene"));
 
 	ASSERT_NO_THROW(sm.changeScene("TestScene"));
 	ASSERT_NO_THROW(sm.changeScene("PlaceHolderScene"));

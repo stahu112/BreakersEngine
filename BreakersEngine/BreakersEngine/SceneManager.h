@@ -7,30 +7,31 @@ namespace BE
 {
 	class SceneManager
 	{
-		std::map<std::string, Scene*> sceneMap;
+		std::map<std::string, std::shared_ptr<Scene>> sceneMap;
 
-		Scene* currentScene;
 
 	public:
 		//TODO Make placeholder scene
-		SceneManager(Scene* scn = new BE::Scene("PlaceHolderScene")) : currentScene(scn) {
+		SceneManager(std::shared_ptr<Scene> scn = std::make_shared<Scene>("PlaceHolderScene")) {
+
 			addScene(scn);
+			currentScene.reset(scn.get());
 			currentScene->initScene();
 		}
 		~SceneManager()
 		{
-			for (auto x : sceneMap)
-			{
-				delete x.second;
-			}
+			currentScene.release();
+			sceneMap.clear();
 		}
 
-		void addScene(Scene* scn, bool overwrite = false);
+		std::unique_ptr<Scene> currentScene;
+		void addScene(std::shared_ptr<Scene> scn, bool overwrite = false);
+
 		void changeScene(std::string str);
 
 		unsigned int getSceneCount() { return sceneMap.size(); }
 
-		Scene* getCurrentScene() { return currentScene; }
+
 
 	};
 
