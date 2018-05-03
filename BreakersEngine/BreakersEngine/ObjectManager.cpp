@@ -54,7 +54,7 @@ void BE::ObjectManager::destroyObjectByTag(std::string tag_) {
 	objectMap.erase(tag_);
 }
 
-unsigned int BE::ObjectManager::objectCount() {
+unsigned int BE::ObjectManager::objectCount() const {
 	Logger::log("Object count of: " + this->tag + " = " + std::to_string(objectMap.size()));
 	return objectMap.size();
 }
