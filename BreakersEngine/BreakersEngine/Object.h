@@ -20,6 +20,7 @@ namespace BE
 		friend class ObjectManager;
 		std::string tag{ "" };
 		void setTag(std::string tag_) { tag = tag_; }
+		bool active = true;
 
 	public:
 
@@ -29,7 +30,6 @@ namespace BE
 		 *
 		 */
 		Object(std::string tag_ = "NewObject") : tag(tag_) {}
-
 		/*!
 		 * @brief Destructor calls onDestroy()
 		 *
@@ -38,7 +38,21 @@ namespace BE
 		{
 			onDestroy();
 		}
-
+		/*!
+		 * @brief Check if Object is active
+		 * @return true if active, false if not
+		 */
+		bool isActive() { return active; }
+		/*!
+		 * @brief Activate object
+		 *
+		 */
+		void activate();
+		/*!
+		* @brief Dectivate object
+		*
+		*/
+		void dectivate();
 		/*!
 		 * @brief returns tag of the object
 		 *
@@ -48,11 +62,13 @@ namespace BE
 
 	protected:
 
+		virtual void onActivation() {}
+		virtual void onDeactivation() {}
 		/*!
 		 * @brief called on Adding object to the manager
 		 *
 		 */
-		virtual void onInit() { Logger::log(tag + " Initiated"); }
+		virtual void onInit() {}
 		/*!
 		 * @brief called each frame
 		 *
@@ -73,6 +89,6 @@ namespace BE
 		 * @brief called when the object is being destroyed
 		 *
 		 */
-		virtual void onDestroy() { Logger::log(tag + " Destroyed"); }
+		virtual void onDestroy() {}
 	};
 }

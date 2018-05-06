@@ -1,41 +1,54 @@
 #include "SceneState.h"
 #include "Scene.h"
 
-BE::SceneStateMachine::SceneStateMachine(std::unique_ptr<Scene> parent, std::unique_ptr<SceneState> initialState)
+BE::SceneStateMachine::SceneStateMachine(std::unique_ptr<Scene> parent, std::shared_ptr<SceneState> initialState)
 {
 	parentScene = std::move(parent);
-	currentState = std::move(initialState);
+	stateStack.push(initialState);
+	stateStack.top()->onEnter();
 }
 
-bool BE::SceneStateMachine::changeState(std::unique_ptr<SceneState> newState)
+void BE::SceneStateMachine::changeState(std::shared_ptr<SceneState> newState)
 {
-	if (stateStack.size() == 1)
+	if (stateStack.size() <= 1)
 	{ //Must have at least 1 element
 		Logger::log("From: " + parentScene->getTag() + " basic state cannot be removed! Use 'pushState' instead!");
-		return false;
+		throw Exceptions::EXTryingToPopInitialState{};
 	}
 	else
 	{
+		stateStack.top()->onExit();
 		stateStack.pop();
-		stateStack.push(std::move(newState));
-		return true;
+		stateStack.push(newState);
+		stateStack.top()->onEnter();
 	}
 }
 
-void BE::SceneStateMachine::pushState(std::unique_ptr<SceneState> newState)
+void BE::SceneStateMachine::pushState(std::shared_ptr<SceneState> newState)
 {
-	stateStack.push(std::move(newState));
+	stateStack.top()->onExit();
+	stateStack.push(newState);
+	stateStack.top()->onEnter();
 }
 
-bool BE::SceneStateMachine::popState()
+void BE::SceneStateMachine::popState()
 {
-	if (stateStack.size() == 1)
+	if (stateStack.size() <= 1)
 	{
 		Logger::log("From: " + parentScene->getTag() + " basic state cannot be removed!");
-		return false;
+		throw Exceptions::EXTryingToPopInitialState{};
 	}
 	else
 	{
+		stateStack.top()->onExit();
 		stateStack.pop();
+		stateStack.top()->onEnter();
 	}
+}
+
+std::string BE::SceneStateMachine::stringifyActiveState()
+{
+	std::string str{ stateStack.top()->getName() };
+	str.erase(0, 10);
+	return str;
 }

@@ -16,9 +16,12 @@ namespace BE
 	{
 		std::string tag{ "New scene" };
 
-		SceneStateMachine stateMachine{ std::unique_ptr<Scene>(this), std::make_unique<SceneState>() };
 
 	public:
+		/*!
+		 * @brief StateMachine
+		 */
+		SceneStateMachine stateMachine{ std::unique_ptr<Scene>(this), std::make_unique<SceneState>() };
 		/*!
 		 * @brief Get the scene name
 		 *
@@ -34,20 +37,18 @@ namespace BE
 		 * @brief Initiate the scene
 		 *
 		 */
-		virtual void initScene() { Logger::log(tag + " Init"); }
+		virtual void initScene() {}
 		/*!
 		 * @brief Called when the scene is about to change
 		 *
 		 */
-		virtual void onChangeScene() { Logger::log(tag + " SceneChange"); }
+		virtual void onChangeScene() {}
 		/*!
 		 * @brief Construct the scene with given tag
 		 * @param tag_ - name of a scene
 		 */
 		Scene(std::string tag_);
-		~Scene() {
-			Logger::log(tag + " destroyed");
-		}
+		~Scene() {}
 
 
 	};

@@ -25,7 +25,7 @@ namespace BE
 		 * Logs given message to the console and saves the log.txt file if DEBUG is defined
 		 * @param msg - Message to log
 		 */
-		static void log(const std::string& msg = "===LOG END===");
+		static void log(const std::string& msg = "===LOG END===", bool sayLog = true);
 
 
 	};

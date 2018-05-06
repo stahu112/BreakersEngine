@@ -4,7 +4,6 @@ void BE::SceneManager::addScene(std::shared_ptr<Scene> scn, bool overwrite) {
 
 	if (sceneMap.find(scn->getTag()) == sceneMap.end())
 	{
-		Logger::log("Added " + scn->getTag() + " scene to the scenePool");
 		sceneMap.insert(std::make_pair(scn->getTag(), scn));
 	}
 	else
@@ -25,7 +24,7 @@ void BE::SceneManager::changeScene(std::string str)
 {
 	if (sceneMap.find(str) == sceneMap.end())
 	{
-		Logger::log("There's no scene with name: " + str + "i n the manager");
+		Logger::log("There's no scene with name: " + str + " in the manager");
 		throw Exceptions::EXSceneWithNameNotFound{};
 	}
 	else

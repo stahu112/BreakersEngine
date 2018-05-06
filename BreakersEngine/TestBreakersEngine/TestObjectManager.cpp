@@ -46,8 +46,17 @@ TEST_F(TestObjectManager, AddThenGetObjectTest)
 
 TEST_F(TestObjectManager, AddObjectWithTheSameTag)
 {
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 50; i++)
+	{
 		objectManager.addObject(new Object);
+	}
+	for (auto x = objectManager.it_begin(); x != objectManager.it_end(); x++)
+	{
+		auto first = x->first;
+		x++;
+		auto second = x->first;
+		ASSERT_NE(first, second);
+	}
 }
 
 TEST_F(TestObjectManager, CanUseObjectsVirtualFunctions)
@@ -62,4 +71,13 @@ TEST_F(TestObjectManager, CanUseObjectsVirtualFunctions)
 TEST_F(TestObjectManager, TryGettingObjectThatDoesntExist)
 {
 	ASSERT_THROW(objectManager.getObjectByTag("NotHere")->getTag(), Exceptions::EXObjectWithTagNotFound);
+}
+
+TEST_F(TestObjectManager, ShowContents)
+{
+	for (int i = 0; i < 20; i++)
+	{
+		objectManager.addObject(new Object);
+	}
+	objectManager.showContents();
 }

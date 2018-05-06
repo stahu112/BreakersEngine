@@ -8,7 +8,7 @@ namespace BE
 	namespace System
 	{
 		struct SettingsInterface
-		{	
+		{
 			virtual std::string stringify()
 			{
 				return "Base stringify";
@@ -18,13 +18,13 @@ namespace BE
 			{
 				std::string ret{};
 				ret += "\n";
-				ret += std::string(head.size() + 10, '-');
+				ret += std::string(head.size() + 10, '=');
 				ret += "\n";
-				ret += std::string(5, '-');
+				ret += std::string(5, '=');
 				ret += head;
-				ret += std::string(5, '-');
+				ret += std::string(5, '=');
 				ret += "\n";
-				ret += std::string(head.size() + 10, '-');
+				ret += std::string(head.size() + 10, '=');
 				ret += "\n\n";
 
 				return ret;
@@ -59,19 +59,19 @@ namespace BE
 		//RenderSettings
 		struct RenderSettings : public SettingsInterface
 		{
-		
+
 			sf::Color clearColor;
 			bool doubleBuffering;
 			bool verticalSync;
 			unsigned int fpsLimit;
 
-			std::string stringify() override 
+			std::string stringify() override
 			{
 				std::string ret{};
 				ret += genHead("Render Settings");
 
-				ret += "Clear Color: (" + std::to_string(clearColor.r) + ":" 
-					+ std::to_string(clearColor.g) + ":" 
+				ret += "Clear Color: (" + std::to_string(clearColor.r) + ":"
+					+ std::to_string(clearColor.g) + ":"
 					+ std::to_string(clearColor.b) + ":"
 					+ std::to_string(clearColor.a) + ")\n";
 

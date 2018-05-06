@@ -103,7 +103,7 @@ namespace BE
 			Settings getSettings() { return settings; }
 
 			Application();
-			~Application() { Logger::log(); }
+			~Application() { /*Logger::log();*/ }
 
 		};
 

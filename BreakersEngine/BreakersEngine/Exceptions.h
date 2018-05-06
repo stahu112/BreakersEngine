@@ -19,6 +19,12 @@ namespace BE
 				return "No scene with this name!";
 			}
 		};
-
+		struct EXTryingToPopInitialState : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "You can't pop the initial state!";
+			}
+		};
 	}
 }

@@ -14,7 +14,6 @@ void BE::ObjectManager::addObject(Object * obj)
 		append = std::to_string(i);
 	}
 
-	Logger::log("From: " + this->tag + " : add object with tag: " + obj->getTag());
 	this->objectMap.insert(std::make_pair(obj->getTag(), obj));
 	this->objectMap.at(obj->getTag())->onInit();
 }
@@ -23,7 +22,7 @@ void BE::ObjectManager::callUpdate()
 {
 	for (auto &x : objectMap)
 	{
-		x.second->update();
+		if (x.second->active) x.second->update();
 	}
 }
 
@@ -31,7 +30,7 @@ void BE::ObjectManager::callLateUpdate()
 {
 	for (auto &x : objectMap)
 	{
-		x.second->lateUpdate();
+		if (x.second->active) x.second->lateUpdate();
 	}
 }
 
@@ -39,12 +38,10 @@ BE::Object * BE::ObjectManager::getObjectByTag(std::string tag_)
 {
 	if (objectMap.find(tag_) != objectMap.end())
 	{
-		Logger::log("From: " + this->tag + ": Get by tag: " + tag_);
 		return objectMap.at(tag_);
 	}
 	else
 	{
-		Logger::log("From: " + this->tag + ": no object with tag: " + tag_);
 		throw Exceptions::EXObjectWithTagNotFound{};
 	}
 }
@@ -55,8 +52,20 @@ void BE::ObjectManager::destroyObjectByTag(std::string tag_) {
 }
 
 unsigned int BE::ObjectManager::objectCount() const {
-	Logger::log("Object count of: " + this->tag + " = " + std::to_string(objectMap.size()));
 	return objectMap.size();
+}
+
+void BE::ObjectManager::showContents()
+{
+
+	Logger::log("\n===== Contents of " + this->tag + "[" + std::to_string(this->objectCount()) + "]" + " =====", false);
+	int i = 0;
+	for (auto x : objectMap)
+	{
+		i++;
+		Logger::log(std::to_string(i) + ": " + x.first, false);
+	}
+	Logger::log("======================", false);
 }
 
 void BE::ObjectManager::destroyAllObjects()
@@ -70,7 +79,6 @@ void BE::ObjectManager::destroyAllObjects()
 		objectMap.erase(beg);
 		beg++;
 	}
-	Logger::log("From: " + this->tag + ": destroyed all objects");
 }
 
 bool BE::ObjectManager::tagTaken(std::string tag_)

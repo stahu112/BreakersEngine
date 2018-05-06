@@ -30,5 +30,5 @@ TEST_F(TestSettings, DefaultClearColor)
 
 TEST_F(TestSettings, TestStringify)
 {
-	BE::Logger::log(set.stringify());
+	BE::Logger::log(set.stringify(), false);
 }

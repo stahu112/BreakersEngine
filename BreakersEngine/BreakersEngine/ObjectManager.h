@@ -44,6 +44,13 @@ namespace BE
 			this->destroyAllObjects();
 		}
 		/*!
+		 * @brief Stringify the object manager contents
+		 *
+		 */
+
+		void showContents();
+
+		/*!
 		 * @brief Use to wipe all the objects from the manager
 		 * @note It cause onDestroy() calls from the objects stored
 		 * @warning USE WITH CARE

@@ -25,7 +25,7 @@ namespace BE
 					if (e.type == sf::Event::Closed) exit();
 				}
 
-
+				sceneManager.currentScene->stateMachine.getActiveState()->update();
 
 				window->clear();
 				window->display();

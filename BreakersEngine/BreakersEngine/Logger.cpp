@@ -2,12 +2,12 @@
 
 #define DEBUG
 
-void BE::Logger::log(const std::string& msg)
+void BE::Logger::log(const std::string& msg, bool sayLog)
 {
 #ifdef DEBUG
 	std::string ret{ "" };
 
-	if (msg != "===LOG END===") ret += "LOG: ";
+	if (msg != "===LOG END===" && sayLog) ret += "LOG: ";
 
 	ret += msg + "\n";
 

@@ -11,7 +11,6 @@ public:
 
 TEST_F(TestSceneManager, CheckIfManagerHasPlaceHolderScene)
 {
-	std::cout << (sm.currentScene->getTag());
 	ASSERT_EQ("PlaceHolderScene", sm.currentScene->getTag());
 }
 
@@ -30,8 +29,13 @@ TEST_F(TestSceneManager, TestChangeScene)
 {
 	sm.addScene(std::make_unique<BE::Scene>("TestScene"));
 
+
+	ASSERT_EQ(sm.currentScene->getTag(), "PlaceHolderScene");
 	ASSERT_NO_THROW(sm.changeScene("TestScene"));
+	ASSERT_EQ(sm.currentScene->getTag(), "TestScene");
 	ASSERT_NO_THROW(sm.changeScene("PlaceHolderScene"));
+	ASSERT_EQ(sm.currentScene->getTag(), "PlaceHolderScene");
+
 }
 
 TEST_F(TestSceneManager, TestChangeSceneThatDoesntExist)
