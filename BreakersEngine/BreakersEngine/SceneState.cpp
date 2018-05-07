@@ -1,5 +1,18 @@
 #include "SceneState.h"
 #include "Scene.h"
+#include "System\Application.h"
+
+/*!
+* @brief Update loop
+* Calls all the necessary stuff like update and object manager callUpdate
+*
+*/
+void BE::SceneStateMachine::updateLoop()
+{
+	getActiveState()->update();
+	parentScene->objectManager.callUpdate();
+	parentScene->objectManager.callLateUpdate();
+}
 
 BE::SceneStateMachine::SceneStateMachine(std::unique_ptr<Scene> parent, std::shared_ptr<SceneState> initialState)
 {
@@ -52,3 +65,5 @@ std::string BE::SceneStateMachine::stringifyActiveState()
 	str.erase(0, 10);
 	return str;
 }
+
+BE::SceneState::SceneState() {/* System::Application::get()->sceneManager.currentScene->objectManager->addObject(new Object); */ }

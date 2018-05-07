@@ -1,5 +1,6 @@
 #include "Application.h"
 
+
 namespace BE
 {
 	namespace System
@@ -25,7 +26,7 @@ namespace BE
 					if (e.type == sf::Event::Closed) exit();
 				}
 
-				sceneManager.currentScene->stateMachine.getActiveState()->update();
+				sceneManager.currentScene->stateMachine.updateLoop();
 
 				window->clear();
 				window->display();

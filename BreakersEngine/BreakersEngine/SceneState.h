@@ -3,10 +3,10 @@
 #include <stack>
 #include <memory>
 #include"Logger.h"
+
 namespace BE
 {
 	class Scene;
-
 	/*!
 	 * @brief parent class for scene states
 	 *
@@ -17,12 +17,12 @@ namespace BE
 		friend class SceneStateMachine;
 		std::string getName() { return typeid(*this).name(); }
 
-
 	public:
-		int count = 0;
+		SceneState();
 		virtual void onEnter() { Logger::log(getName() + " OnEnter"); }
-		virtual void update() { Logger::log(getName() + " Update"); std::cout << count++ << std::endl; }
+		virtual void update() { Logger::log(getName() + " Update"); }
 		virtual void onExit() { Logger::log(getName() + " OnExit"); }
+
 	};
 
 	/*!
@@ -44,6 +44,12 @@ namespace BE
 		std::stack<std::shared_ptr<SceneState>> stateStack;
 
 	public:
+		/*!
+		 * @brief Update loop
+		 * Calls all the necessary stuff like update and object manager callUpdate
+		 *
+		 */
+		void updateLoop();
 		std::shared_ptr<SceneState> getActiveState() { return stateStack.top(); };
 		/*!
 		 * @brief Pointer to the Scene to witch the instance of SceneStateMachine belongs

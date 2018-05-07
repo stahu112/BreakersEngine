@@ -43,7 +43,11 @@ TEST_F(TestSceneManager, TestChangeSceneThatDoesntExist)
 	ASSERT_THROW(sm.changeScene("TestScene"), BE::Exceptions::EXSceneWithNameNotFound);
 }
 
-TEST_F(TestSceneManager, Test1)
+TEST_F(TestSceneManager, TestStateMachineAfterChangingScenes)
 {
+	std::cout << sm.currentScene->stateMachine.parentScene->getTag() << std::endl;
+	sm.addScene(std::make_unique<BE::Scene>("TestScene"));
+	sm.changeScene("TestScene");
+	std::cout << sm.currentScene->stateMachine.parentScene->getTag() << std::endl;
 
 }

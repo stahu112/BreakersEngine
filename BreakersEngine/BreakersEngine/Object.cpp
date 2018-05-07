@@ -1,16 +1,9 @@
 #include "Object.h"
 
 /*!
-* @brief Dectivate object
-*
-*/
-
-
-/*!
 * @brief Activate object
 *
 */
-
 void BE::Object::activate() {
 	if (active) return;
 	else
@@ -20,6 +13,10 @@ void BE::Object::activate() {
 	}
 }
 
+/*!
+* @brief Dectivate object
+*
+*/
 void BE::Object::dectivate() {
 	if (!active) return;
 	else

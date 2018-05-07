@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include "../ObjectManager.h"
 #include "Settings.h"
 #include "../Logger.h"
 #include "../GUI/Window.h"
@@ -94,7 +93,7 @@ namespace BE
 			 * @brief Contains map of available scenes
 			 *
 			 */
-			SceneManager sceneManager{};
+			SceneManager sceneManager;
 
 			/*!
 			 * @brief returns settings of the window

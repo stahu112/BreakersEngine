@@ -5,6 +5,7 @@
 
 namespace BE
 {
+
 	/*!
 	 * @see ObjectManager
 	 * @brief Container class storing shared_ptrs to the available scenes

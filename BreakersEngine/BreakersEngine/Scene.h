@@ -31,7 +31,7 @@ namespace BE
 		/*!
 		 * @brief ObjectManager of the scene
 		 */
-		std::unique_ptr<ObjectManager> objectManager;
+		ObjectManager objectManager{ tag + " ObjectManager" };
 
 		/*!
 		 * @brief Initiate the scene
