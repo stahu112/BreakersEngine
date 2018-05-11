@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Settings.h"
+#include "../AssetManager.h"
 #include "../Logger.h"
 #include "../GUI/Window.h"
 #include "Time.h"
@@ -57,6 +58,11 @@ namespace BE
 			 */
 			std::unique_ptr<Window> window;
 
+			/*!
+			 * @brief The Asset manager used as a storage for Textures, Fonts etc
+			 *
+			 */
+			Assets::AssetManager assetManager{};
 
 			/*!
 			 * @brief Delete copy constructor

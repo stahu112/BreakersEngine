@@ -12,6 +12,7 @@ void BE::SceneStateMachine::updateLoop()
 	getActiveState()->update();
 	parentScene->objectManager.callUpdate();
 	parentScene->objectManager.callLateUpdate();
+	parentScene->objectManager.callDraw();
 }
 
 BE::SceneStateMachine::SceneStateMachine(std::unique_ptr<Scene> parent, std::shared_ptr<SceneState> initialState)

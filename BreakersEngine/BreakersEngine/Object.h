@@ -3,6 +3,7 @@
 #include <string>
 #include "Logger.h"
 
+
 namespace BE
 {
 
@@ -90,5 +91,11 @@ namespace BE
 		 *
 		 */
 		virtual void onDestroy() { Logger::log(tag + " Destroyed"); }
+
+		/*!
+		 * @brief called last and manages drawing stuff
+		 *
+		 */
+		virtual void draw();
 	};
 }

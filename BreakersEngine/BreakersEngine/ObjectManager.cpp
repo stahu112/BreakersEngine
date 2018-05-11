@@ -34,6 +34,14 @@ void BE::ObjectManager::callLateUpdate()
 	}
 }
 
+void BE::ObjectManager::callDraw()
+{
+	for (auto &x : objectMap)
+	{
+		if (x.second->active) x.second->draw();
+	}
+}
+
 BE::Object * BE::ObjectManager::getObjectByTag(std::string tag_)
 {
 	if (objectMap.find(tag_) != objectMap.end())

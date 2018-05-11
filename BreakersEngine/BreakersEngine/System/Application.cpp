@@ -25,10 +25,10 @@ namespace BE
 				{
 					if (e.type == sf::Event::Closed) exit();
 				}
+				window->clear();
 
 				sceneManager.currentScene->stateMachine.updateLoop();
 
-				window->clear();
 				window->display();
 			}
 

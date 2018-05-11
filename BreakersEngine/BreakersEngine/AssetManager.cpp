@@ -14,7 +14,7 @@ namespace BE
 		}
 		AssetManager::AssetManager()
 		{
-			textureManager.addAsset(Texture::dummyTexture, "../BreakersEngine/Resources/Textures/aoy.jpg");
+			textureManager.addAsset(Texture::dummyTexture, "Resources/Textures/aoy.jpg");
 			/*
 			* TODO Parse File with assets (csv? xml? yaml?)
 			* */

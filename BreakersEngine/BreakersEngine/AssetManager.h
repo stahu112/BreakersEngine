@@ -1,6 +1,8 @@
 #pragma once
 #include "AssetStorage.h"
 #include "Logger.h"
+#include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 #include <boost\preprocessor.hpp>
 #include <map>
 

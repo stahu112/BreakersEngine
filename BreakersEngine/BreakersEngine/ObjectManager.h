@@ -92,6 +92,11 @@ namespace BE
 		*/
 		void callLateUpdate();
 		/*!
+		 * @brief Call draw method from all the stored objects
+		 *
+		 */
+		void callDraw();
+		/*!
 		 * @brief Get pointer to the stored object with given tag
 		 *
 		 * @param tag_ - tag of the object to get
