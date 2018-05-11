@@ -1,8 +1,9 @@
 #include "gtest/gtest.h"
 #include "../BreakersEngine/System/Application.h"
+#include "../BreakersEngine/AssetManager.h"
 
 using namespace testing;
-using namespace BE::System;
+using namespace BE;
 
 class TestApp : public Test
 {
@@ -11,10 +12,5 @@ public:
 
 TEST_F(TestApp, SuccessfullyGetInstance)
 {
-	Application::get();
-}
-
-TEST_F(TestApp, Test1)
-{
-
+	System::Application::get();
 }

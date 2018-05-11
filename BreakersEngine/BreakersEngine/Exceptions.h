@@ -26,5 +26,19 @@ namespace BE
 				return "You can't pop the initial state!";
 			}
 		};
+		struct EXNoAsset : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "There's no such asset!;";
+			}
+		};
+		struct EXWrongPath : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "NOT FOUND! Invalid path!";
+			}
+		};
 	}
 }
