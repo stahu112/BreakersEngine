@@ -1,5 +1,5 @@
 #include "Application.h"
-
+#include <string>
 
 namespace BE
 {

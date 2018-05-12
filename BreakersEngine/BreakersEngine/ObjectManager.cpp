@@ -22,7 +22,10 @@ void BE::ObjectManager::callUpdate()
 {
 	for (auto &x : objectMap)
 	{
-		if (x.second->active) x.second->update();
+		if (x.second != nullptr)
+		{
+			if (x.second->active) x.second->update();
+		}
 	}
 }
 
@@ -30,15 +33,22 @@ void BE::ObjectManager::callLateUpdate()
 {
 	for (auto &x : objectMap)
 	{
-		if (x.second->active) x.second->lateUpdate();
+		if (x.second != nullptr)
+		{
+			if (x.second->active) x.second->lateUpdate();
+		}
 	}
 }
 
+//TODO Z factor
 void BE::ObjectManager::callDraw()
 {
 	for (auto &x : objectMap)
 	{
-		if (x.second->active) x.second->draw();
+		if (x.second != nullptr)
+		{
+			if (x.second->active) x.second->draw();
+		}
 	}
 }
 

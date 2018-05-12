@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "ObjectTransform.h"
 #include "Logger.h"
 
 
 namespace BE
 {
-
 	/*!
 	 * @brief Interface from which all your game objects should inherit
 	 *
@@ -18,13 +18,18 @@ namespace BE
 	 */
 	class Object
 	{
+	protected:
 		friend class ObjectManager;
 		std::string tag{ "" };
 		void setTag(std::string tag_) { tag = tag_; }
 		bool active = true;
 
 	public:
-
+		/*!
+		 * @brief Objects transform
+		 *
+		 */
+		Transform transform{};
 		/*!
 		 *@brief Create object with given name
 		 *@param tag_ - unique name of the object, if not give it's defaulted to "NewObject"
@@ -35,7 +40,7 @@ namespace BE
 		 * @brief Destructor calls onDestroy()
 		 *
 		 */
-		~Object()
+		virtual ~Object()
 		{
 			onDestroy();
 		}
@@ -91,11 +96,10 @@ namespace BE
 		 *
 		 */
 		virtual void onDestroy() { Logger::log(tag + " Destroyed"); }
-
 		/*!
 		 * @brief called last and manages drawing stuff
 		 *
 		 */
-		virtual void draw();
+		virtual void draw() { Logger::log(tag + " Draw"); }
 	};
 }

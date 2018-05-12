@@ -16,7 +16,6 @@ namespace BE
 	{
 		std::string tag{ "New scene" };
 
-
 	public:
 		/*!
 		 * @brief StateMachine
@@ -47,7 +46,7 @@ namespace BE
 		 * @brief Construct the scene with given tag
 		 * @param tag_ - name of a scene
 		 */
-		Scene(std::string tag_);
+		Scene(std::string tag_) : tag(tag_) {}
 		~Scene() {}
 
 

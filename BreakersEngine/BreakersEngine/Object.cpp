@@ -26,16 +26,3 @@ void BE::Object::dectivate() {
 		this->onDeactivation();
 	}
 }
-
-/*!
-* @brief called each frame
-*
-*/
-
-void BE::Object::draw()
-{
-	Logger::log(tag + " Draw");
-	sf::Sprite sp;
-	sp.setTexture(System::Application::get()->assetManager.getTexture(Assets::Texture::dummyTexture));
-	System::Application::get()->window->draw(sp);
-}
