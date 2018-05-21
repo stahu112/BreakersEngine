@@ -154,7 +154,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)Depedencies\Sfml\include;C:\boost_1_66_0</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Depedencies\pugi;$(SolutionDir)Depedencies\Sfml\include;C:\boost_1_66_0</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

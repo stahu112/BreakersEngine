@@ -2,11 +2,11 @@
 
 
 
-AssetParser::AssetParser()
+BE::Assets::AssetParser::AssetParser()
 {
 }
 
 
-AssetParser::~AssetParser()
+BE::Assets::AssetParser::~AssetParser()
 {
 }

@@ -40,5 +40,12 @@ namespace BE
 				return "NOT FOUND! Invalid path!";
 			}
 		};
+		struct EXNoConfigFile : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "XML Configuration file not found!";
+			}
+		};
 	}
 }

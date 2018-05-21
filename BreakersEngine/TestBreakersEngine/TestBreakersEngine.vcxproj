@@ -116,7 +116,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\googletest-master\googletest\include;C:\googletest-master\googletest;C:\boost_1_66_0;$(SolutionDir)Depedencies\googletest-master\googletest\include;$(SolutionDir)Depedencies\googletest-master\googletest;$(SolutionDir)Depedencies\Sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Depedencies\pugi;C:\googletest-master\googletest\include;C:\googletest-master\googletest;C:\boost_1_66_0;$(SolutionDir)Depedencies\googletest-master\googletest\include;$(SolutionDir)Depedencies\googletest-master\googletest;$(SolutionDir)Depedencies\Sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,7 +124,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Depedencies\Sfml\lib;C:\Sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;../BreakersEngine/Release/Application.obj;../BreakersEngine/Release/Window.obj;../BreakersEngine/Release/Settings.obj;../BreakersEngine/Release/Object.obj;../BreakersEngine/Release/ObjectManager.obj;../BreakersEngine/Release/Logger.obj;../BreakersEngine/Release/SceneManager.obj;../BreakersEngine/Release/SceneState.obj;../BreakersEngine/Release/AssetManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;../BreakersEngine/Release/Application.obj;../BreakersEngine/Release/Window.obj;../BreakersEngine/Release/Settings.obj;../BreakersEngine/Release/Object.obj;../BreakersEngine/Release/ObjectManager.obj;../BreakersEngine/Release/Logger.obj;../BreakersEngine/Release/SceneManager.obj;../BreakersEngine/Release/SceneState.obj;../BreakersEngine/Release/AssetManager.obj;../BreakersEngine/Release/AssetParser.obj;../BreakersEngine/Release/pugixml.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,6 +155,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TestAppliaction.cpp" />
     <ClCompile Include="TestAssetManager.cpp" />
+    <ClCompile Include="TestAssetParser.cpp" />
     <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="TestObjectManager.cpp" />
     <ClCompile Include="TestScene.cpp" />
