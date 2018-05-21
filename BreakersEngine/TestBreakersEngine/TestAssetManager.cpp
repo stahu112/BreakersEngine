@@ -9,10 +9,6 @@ public:
 	BE::Assets::AssetManager am{};
 };
 
-TEST_F(TestAssetManager, TestConstructor)
-{
-}
-
 TEST_F(TestAssetManager, TestGetAsset)
 {
 	sf::Texture tex;

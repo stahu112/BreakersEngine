@@ -7,9 +7,10 @@ class TestObject : public Test
 {
 
 public:
-	BE::Object obj{};
+	BE::Object obj{ "TEST" };
 };
 
-TEST_F(TestObject, CheckDestructor)
+TEST_F(TestObject, GetTag)
 {
+	ASSERT_EQ(obj.getTag(), "TEST");
 }

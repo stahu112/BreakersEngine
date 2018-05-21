@@ -116,14 +116,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\boost_1_66_0;C:\Sfml\include;C:\googletest-master\googletest\include;C:\googletest-master\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\googletest-master\googletest\include;C:\googletest-master\googletest;C:\boost_1_66_0;$(SolutionDir)Depedencies\googletest-master\googletest\include;$(SolutionDir)Depedencies\googletest-master\googletest;$(SolutionDir)Depedencies\Sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Depedencies\Sfml\lib;C:\Sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;../BreakersEngine/Release/Application.obj;../BreakersEngine/Release/Window.obj;../BreakersEngine/Release/Settings.obj;../BreakersEngine/Release/Object.obj;../BreakersEngine/Release/ObjectManager.obj;../BreakersEngine/Release/Logger.obj;../BreakersEngine/Release/SceneManager.obj;../BreakersEngine/Release/SceneState.obj;../BreakersEngine/Release/AssetManager.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

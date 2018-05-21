@@ -49,3 +49,36 @@ TEST_F(TestTransform, ScaleWorkProperly)
 	t.setScale(sf::Vector2f(0.5, 2));
 	ASSERT_EQ(t.getScale(), sf::Vector2f(0.5, 2));
 }
+
+TEST_F(TestTransform, TestChildrenPosition)
+{
+	t.setPosition({ 0,0 });
+	BE::Transform trans{};
+	BE::Transform trans1{};
+	trans.setPosition({ 10, 10 });
+	trans1.setPosition({ 50, 50 });
+	t.addChild(trans);
+	t.addChild(trans1);
+	t.setPosition({ 100,100 });
+	ASSERT_EQ(trans.getPosition().x, 110);
+	ASSERT_EQ(trans.getPosition().y, 110);
+	t.translate({ 50,50 });
+	ASSERT_EQ(trans1.getPosition().x, 200);
+	ASSERT_EQ(trans1.getPosition().y, 200);
+}
+
+TEST_F(TestTransform, TestChildrenRotation)
+{
+	t.setRotation(0);
+	BE::Transform trans{};
+	BE::Transform trans1{};
+	trans1.setRotation(90);
+	trans.setRotation(90);
+	t.addChild(trans);
+	t.setRotation(90);
+	ASSERT_EQ(trans.getRotation(), 180);
+	t.addChild(trans1);
+	t.rotate(90);
+	ASSERT_EQ(trans1.getRotation(), 180);
+	ASSERT_EQ(trans.getRotation(), 270);
+}

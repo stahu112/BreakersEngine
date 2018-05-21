@@ -19,7 +19,6 @@ BE::SceneStateMachine::SceneStateMachine(std::unique_ptr<Scene> parent, std::sha
 {
 	parentScene = std::move(parent);
 	stateStack.push(initialState);
-	stateStack.top()->onEnter();
 }
 
 void BE::SceneStateMachine::changeState(std::shared_ptr<SceneState> newState)

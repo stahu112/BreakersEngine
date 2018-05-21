@@ -32,14 +32,6 @@ TEST_F(TestScene, SceneHasObjectManagerAndCanPerformActionsOnIt)
 	ASSERT_EQ(2, scene.objectManager.objectCount());
 	ASSERT_FALSE(scene.objectManager.tagTaken("NewObject1"));
 
-	scene.objectManager.destroyAllObjects();
-	//ASSERT_EQ(0, scene.objectManager->objectCount());
-}
-
-TEST_F(TestScene, SceneHasVirtualInterfaces)
-{
-	scene.initScene();
-	scene.onChangeScene();
 }
 
 TEST_F(TestScene, SceneHasValidStateMachine)
@@ -79,15 +71,7 @@ TEST_F(TestScene, ChangeStateWorks)
 	ASSERT_EQ(scene.stateMachine.getStackSize(), 3);
 }
 
-TEST_F(TestScene, CallUpdate)
-{
-	for (int i = 0; i < 100; i++)
-	{
-		scene.stateMachine.getActiveState()->update();
-	}
-}
-
 TEST_F(TestScene, CallStateMachineParentScene)
 {
-	std::cout << scene.stateMachine.parentScene->getTag();
+	ASSERT_EQ(scene.stateMachine.parentScene->getTag(), "Scene");
 }

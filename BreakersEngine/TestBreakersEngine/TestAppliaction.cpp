@@ -12,5 +12,5 @@ public:
 
 TEST_F(TestApp, SuccessfullyGetInstance)
 {
-	System::Application::get();
+	ASSERT_NE(System::Application::get(), nullptr);
 }
