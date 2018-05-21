@@ -1,0 +1,15 @@
+<Resource>
+	<Textures>
+		<Asset>
+			<Name>aoyama</Name>
+			<Path>"Resources/Textures/aoy.jpg"</Path>
+		</Asset>
+	</Textures>
+
+	<Fonts>
+	</Fonts>
+
+	<Sounds>
+	</Sounds>
+	
+</Resource>
