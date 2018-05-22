@@ -16,11 +16,11 @@ namespace BE
 
 		friend class SceneStateMachine;
 		std::string getName() { return typeid(*this).name(); }
-
+		int i = 0;
 	public:
 		SceneState();
 		virtual void onEnter() { Logger::log(getName() + " OnEnter"); }
-		virtual void update() { Logger::log(getName() + " Update"); }
+		virtual void update();
 		virtual void onExit() { Logger::log(getName() + " OnExit"); }
 
 	};

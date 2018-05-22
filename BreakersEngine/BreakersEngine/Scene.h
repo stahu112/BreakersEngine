@@ -14,13 +14,27 @@ namespace BE
 	 */
 	class Scene
 	{
-		std::string tag{ "New scene" };
+		std::string tag{};
 
 	public:
 		/*!
 		 * @brief StateMachine
 		 */
-		SceneStateMachine stateMachine{ std::unique_ptr<Scene>(this), std::make_unique<SceneState>() };
+		std::unique_ptr<SceneStateMachine> stateMachine;
+		/*!
+		 * @brief Must be called to initiate stateMachine
+		 *
+		 */
+		void initSM(std::shared_ptr<SceneState> initState = std::make_shared<SceneState>())
+		{
+			if (!stateMachine)
+				stateMachine = std::make_unique<SceneStateMachine>(std::unique_ptr<Scene>(this), initState);
+			else
+			{
+				stateMachine.release();
+				stateMachine = std::make_unique<SceneStateMachine>(std::unique_ptr<Scene>(this), initState);
+			}
+		}
 		/*!
 		 * @brief Get the scene name
 		 *
@@ -46,7 +60,7 @@ namespace BE
 		 * @brief Construct the scene with given tag
 		 * @param tag_ - name of a scene
 		 */
-		Scene(std::string tag_) : tag(tag_) {}
+		Scene(std::string tag_ = "New Scene") : tag(tag_) { initSM(); }
 		~Scene() {}
 
 

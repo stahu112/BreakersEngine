@@ -12,6 +12,7 @@ using namespace BE;
 
 int main()
 {
+	ASSET_MANAGER;
 	System::Application::get()->run();
 	return EXIT_SUCCESS;
 }

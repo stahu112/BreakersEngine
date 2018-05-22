@@ -9,6 +9,11 @@
 #include <thread>
 #include "../SceneManager.h"
 
+#define APP BE::System::Application::get()
+#define SCENE_MANAGER BE::System::Application::get()->sceneManager
+#define ASSET_MANAGER BE::System::Application::get()->assetManager
+#define DRAW BE::System::Application::get()->window->draw
+
 /*!
  * @brief Main namespace of the engine
  *
@@ -99,7 +104,7 @@ namespace BE
 			 * @brief Contains map of available scenes
 			 *
 			 */
-			SceneManager sceneManager;
+			SceneManager sceneManager{};
 
 			/*!
 			 * @brief returns settings of the window

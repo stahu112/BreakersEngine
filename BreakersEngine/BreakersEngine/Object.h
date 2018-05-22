@@ -35,7 +35,9 @@ namespace BE
 		 *@param tag_ - unique name of the object, if not give it's defaulted to "NewObject"
 		 *
 		 */
-		Object(std::string tag_ = "NewObject") : tag(tag_) {}
+		Object(std::string tag_ = "NewObject") : tag(tag_)
+		{
+		}
 		/*!
 		 * @brief Destructor calls onDestroy()
 		 *

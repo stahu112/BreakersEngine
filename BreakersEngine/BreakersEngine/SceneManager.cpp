@@ -1,4 +1,13 @@
 #include "SceneManager.h"
+#include "PlaceHolderScene.h"
+
+//TODO SPLASH SCENE
+BE::SceneManager::SceneManager() {
+	std::shared_ptr<Scene> scn = std::make_shared<Scene>();
+	addScene(scn);
+	addScene(std::make_shared<PlaceHolderScene>());
+	currentScene.reset(scn.get());
+}
 
 void BE::SceneManager::addScene(std::shared_ptr<Scene> scn, bool overwrite) {
 
@@ -15,7 +24,7 @@ void BE::SceneManager::addScene(std::shared_ptr<Scene> scn, bool overwrite) {
 		else
 		{
 			sceneMap.at(scn->getTag()).reset(scn.get());
-			Logger::log("Overwrited " + scn->getTag() + " scene");
+			Logger::log("Overwritten " + scn->getTag() + " scene");
 		}
 	}
 }

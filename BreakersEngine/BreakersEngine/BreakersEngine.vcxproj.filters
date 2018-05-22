@@ -45,10 +45,10 @@
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AssetParser.cpp">
+    <ClCompile Include="..\Depedencies\pugi\pugixml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Depedencies\pugi\pugixml.cpp">
+    <ClCompile Include="PlaceHolderScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,13 +98,13 @@
     <ClInclude Include="ObjectTransform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AssetParser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Depedencies\pugi\pugiconfig.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Depedencies\pugi\pugixml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaceHolderScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -67,3 +67,5 @@ std::string BE::SceneStateMachine::stringifyActiveState()
 }
 
 BE::SceneState::SceneState() {/* System::Application::get()->sceneManager.currentScene->objectManager->addObject(new Object); */ }
+
+void BE::SceneState::update() { i++; if (i == 1) SCENE_MANAGER.changeScene("PlaceHolderScene"); }

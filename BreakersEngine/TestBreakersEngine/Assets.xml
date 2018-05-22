@@ -2,11 +2,12 @@
     <ResourceList>
             <Textures>
                 <Texture name="Aoyama" path="Resources/Textures/aoy.jpg"/>
-            </Textures>
+			</Textures>
 			
 			<Fonts>
 			</Fonts>
 			
 			<Sounds>
 			</Sounds>
+			
 	</ResourceList>

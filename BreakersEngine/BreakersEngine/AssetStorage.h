@@ -8,29 +8,26 @@ namespace BE
 {
 	namespace Assets
 	{
-		enum class Texture
-		{
-			dummyTexture = 0,
-			TEXTURE_COUNT
-		};
-		enum class Font
-		{
-			dummyFont = 0,
-			FONT_COUNT
-		};
-
-		template <typename Enum, typename T>
+		template <typename T>
 		class AssetObjectInterface
 		{
 		protected:
-			std::map<Enum, T> resMap;
+			std::map<std::string, T> resMap;
 
 		public:
 
-			virtual void addAsset(Enum en, std::string path) = 0;
+			virtual void addAsset(std::string en, std::string path) = 0;
 			virtual void deleteContents() { resMap.clear(); }
+			void checkIfExist(std::string name)
+			{
+				for (auto it = resMap.begin(); it != resMap.end(); it++)
+				{
+					if (it->first == name)
+						throw Exceptions::EXAssetAlreadyExists{};
+				}
+			}
 			unsigned int count() { return resMap.size(); }
-			const T& get(Enum en)
+			const T& get(std::string en)
 			{
 				if (resMap.find(en) != resMap.end())
 					return resMap.at(en);
@@ -40,11 +37,12 @@ namespace BE
 			}
 		};
 
-		class TextureManager : public AssetObjectInterface<Texture, sf::Texture>
+		class TextureManager : public AssetObjectInterface<sf::Texture>
 		{
 		public:
-			void addAsset(Texture en, std::string path) override final
+			void addAsset(std::string en, std::string path) override final
 			{
+				checkIfExist(en);
 				sf::Texture tex;
 				if (tex.loadFromFile(path))
 				{
@@ -57,11 +55,12 @@ namespace BE
 			}
 		};
 
-		class FontManager : public AssetObjectInterface<Font, sf::Font>
+		class FontManager : public AssetObjectInterface<sf::Font>
 		{
 		public:
-			void addAsset(Font en, std::string path) override final
+			void addAsset(std::string en, std::string path) override final
 			{
+				checkIfExist(en);
 				sf::Font font;
 				if (font.loadFromFile(path))
 				{

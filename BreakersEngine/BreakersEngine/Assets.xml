@@ -1,15 +1,13 @@
-<Resource>
-	<Textures>
-		<Asset>
-			<Name>aoyama</Name>
-			<Path>"Resources/Textures/aoy.jpg"</Path>
-		</Asset>
-	</Textures>
-
-	<Fonts>
-	</Fonts>
-
-	<Sounds>
-	</Sounds>
-	
-</Resource>
+ <?xml version = '1.0' encoding = 'UTF-8'?>
+    <ResourceList>
+            <Textures>
+                <Texture name="Aoyama" path="Resources/Textures/aoy.jpg"/>
+			</Textures>
+			
+			<Fonts>
+			</Fonts>
+			
+			<Sounds>
+			</Sounds>
+			
+	</ResourceList>

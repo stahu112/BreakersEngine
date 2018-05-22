@@ -1,7 +1,7 @@
 #pragma once
-#include "Scene.h"
 #include <map>
 #include "Exceptions.h"
+#include "Scene.h"
 
 namespace BE
 {
@@ -26,12 +26,8 @@ namespace BE
 		 * @param scn - First scene to load
 		 */
 
-		SceneManager(std::shared_ptr<Scene> scn = std::make_shared<Scene>("PlaceHolderScene")) {
-
-			addScene(scn);
-			currentScene.reset(scn.get());
-			currentScene->initScene();
-		}
+		 //TODO SPLASH SCENE
+		SceneManager();
 		/*!
 		 * @brief Destructor clears the scene container
 		 *

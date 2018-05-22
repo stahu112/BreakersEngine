@@ -47,5 +47,19 @@ namespace BE
 				return "XML Configuration file not found!";
 			}
 		};
+		struct EXAssetNotValid : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "Given asset is not valid for the Breakers Engine! Check XML asset loading file!";
+			}
+		};
+		struct EXAssetAlreadyExists : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "Asset with that name actually exists!";
+			}
+		};
 	}
 }

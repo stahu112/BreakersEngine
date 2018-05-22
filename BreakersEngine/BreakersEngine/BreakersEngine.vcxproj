@@ -21,12 +21,12 @@
   <ItemGroup>
     <ClCompile Include="..\Depedencies\pugi\pugixml.cpp" />
     <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="AssetParser.cpp" />
     <ClCompile Include="GUI\Window.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="PlaceHolderScene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneState.cpp" />
     <ClCompile Include="System\Application.cpp" />
@@ -36,13 +36,13 @@
     <ClInclude Include="..\Depedencies\pugi\pugiconfig.hpp" />
     <ClInclude Include="..\Depedencies\pugi\pugixml.hpp" />
     <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="AssetParser.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="GUI\Window.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="ObjectTransform.h" />
+    <ClInclude Include="PlaceHolderScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneState.h" />

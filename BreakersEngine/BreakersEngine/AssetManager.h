@@ -1,24 +1,35 @@
 #pragma once
 #include "AssetStorage.h"
-#include "Logger.h"
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
-#include <boost\preprocessor.hpp>
-#include <map>
 
+#include <iostream>
 namespace BE
 {
 	namespace Assets
 	{
+		enum class Asset
+		{
+			Texture,
+			Font,
+			Sound
+		};
+
 		class AssetManager
 		{
 			TextureManager textureManager{};
 			FontManager fontManager{};
+			void parse(std::string);
 
 		public:
-			const sf::Texture& getTexture(Texture en);
-			const sf::Font& getFont(Font en);
-			AssetManager();
+			const sf::Texture& getTexture(std::string en);
+			const sf::Font& getFont(std::string en);
+			void addAsset(Asset which, std::string name, std::string path);
+
+			AssetManager()
+			{
+				parse("Assets.xml");
+			}
 		};
 
 	} //End namespace Assets

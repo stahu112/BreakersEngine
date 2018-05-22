@@ -8,7 +8,6 @@ namespace BE
 		void Application::run()
 		{
 			running = true;
-			window = std::make_unique<Window>(settings);
 
 			sf::Clock dtClock;
 			sf::Time dt;
@@ -27,7 +26,7 @@ namespace BE
 				}
 				window->clear();
 
-				sceneManager.currentScene->stateMachine.updateLoop();
+				sceneManager.currentScene->stateMachine->updateLoop();
 
 				window->display();
 			}
@@ -43,7 +42,7 @@ namespace BE
 
 		Application::Application()
 		{
-			//TODO parse settings from file
+			window = std::make_unique<Window>(settings);
 		}
 
 	} //End namespace System
