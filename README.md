@@ -5,5 +5,4 @@ Planned to be a library providing a framework for making games, like game class 
 collision detection, asset manager etc.
 W.I.P
 
-There is also a doxygen generated documentation of the api all work in progress tho
-Temp site: http://breakersenginedox-com.stackstaging.com/
+I believe this should be in "good enough/kinda working" state by the end of june
