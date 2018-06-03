@@ -42,6 +42,8 @@ namespace BE
 
 		Application::Application()
 		{
+			assetManager = assetParser.parse();
+			settings = settingsParser.parse();
 			window = std::make_unique<Window>(settings);
 		}
 

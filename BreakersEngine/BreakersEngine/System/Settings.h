@@ -7,10 +7,19 @@ namespace BE
 {
 	namespace System
 	{
+
+		/*!
+		 * @brief Wrapper class for all the system settings types
+		 *
+		 */
 		class Settings
 		{
 		public:
-			//TODO ParseSettings
+
+			/*!
+			* @brief Constructs new Settings instance with all the default settings
+			*
+			*/
 			Settings(WindowSettings winSet = WindowSettings{}, RenderSettings ren = RenderSettings{});
 			~Settings();
 

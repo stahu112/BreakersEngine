@@ -1,8 +1,7 @@
 /*!
  * \mainpage Breakers Engine API
  *
- * \section intro_sec The engine is still in W.I.P. state
- * Stay put.....
+ * \section intro_sec The engine is still in W.I.P. state, I believe it should be in a usable state before the end of june
  *
  */
 
@@ -12,7 +11,7 @@ using namespace BE;
 
 int main()
 {
-	ASSET_MANAGER;
-	System::Application::get()->run();
+	std::cout << APP->getSettings().stringify() << std::endl;
+	APP->run();
 	return EXIT_SUCCESS;
 }

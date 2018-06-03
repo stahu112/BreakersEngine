@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+	<Config>
+	
+		<WindowSettings>
+			<Width>1366</Width>
+			<Height>768</Height>
+			<Fullscreen>OFF</Fullscreen>
+		</WindowSettings>
+	
+		<RenderSettings>
+			<ClearColorR>100</ClearColorR>
+			<ClearColorG>100</ClearColorG>
+			<ClearColorB>100</ClearColorB>
+			
+			<DoubleBuff>OFF</DoubleBuff>
+			<VSync>ON</VSync>
+ 		</RenderSettings>
+	
+		<GameSettings>
+		</GameSettings>
+
+	</Config>

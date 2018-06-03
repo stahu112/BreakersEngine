@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Settings.h"
+#include "../Parser.h"
 #include "../AssetManager.h"
 #include "../Logger.h"
 #include "../GUI/Window.h"
@@ -68,6 +69,8 @@ namespace BE
 			 *
 			 */
 			Assets::AssetManager assetManager{};
+			AssetParser assetParser{};
+			SettingsParser settingsParser{};
 
 			/*!
 			 * @brief Delete copy constructor

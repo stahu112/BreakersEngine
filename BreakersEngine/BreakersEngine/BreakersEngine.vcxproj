@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\Depedencies\pugi\pugixml.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="GUI\Window.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="..\Depedencies\pugi\pugiconfig.hpp" />
     <ClInclude Include="..\Depedencies\pugi\pugixml.hpp" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="GUI\Window.h" />
     <ClInclude Include="Logger.h" />
