@@ -37,6 +37,7 @@
     <ClInclude Include="..\Depedencies\pugi\pugiconfig.hpp" />
     <ClInclude Include="..\Depedencies\pugi\pugixml.hpp" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="GUI\Window.h" />

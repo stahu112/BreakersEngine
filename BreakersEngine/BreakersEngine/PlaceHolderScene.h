@@ -6,13 +6,7 @@ class Aoyama : public BE::Object
 {
 	sf::Sprite sp;
 
-	void update() override final
-	{
-		this->transform.translate({ 1,1 });
-		this->transform.rotate(3);
-		sp.setPosition(this->transform.getPosition());
-		sp.setRotation(this->transform.getRotation());
-	}
+	void update() override final;
 
 	void draw() override final;
 	void onInit() override;

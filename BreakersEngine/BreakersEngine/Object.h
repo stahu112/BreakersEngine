@@ -70,38 +70,38 @@ namespace BE
 
 	protected:
 
-		virtual void onActivation() { Logger::log(tag + " Activated"); }
-		virtual void onDeactivation() { Logger::log(tag + " Deactivated"); }
+		virtual void onActivation() {  }
+		virtual void onDeactivation() {  }
 		/*!
 		 * @brief called on Adding object to the manager
 		 *
 		 */
-		virtual void onInit() { Logger::log(tag + " Initiated"); }
+		virtual void onInit() {  }
 		/*!
 		 * @brief called each frame
 		 *
 		 */
-		virtual void update() { Logger::log(tag + " Update"); }
+		virtual void update() { }
 		/*!
 		 * @brief called every constant amount of time, specified in "Time" namespace
 		 *
 		 * @note use it for physics calculations
 		 */
-		virtual void fixedUpdate() { Logger::log(tag + " FixedUpdate"); }
+		virtual void fixedUpdate() { }
 		/*!
 		 * @brief called every frame but AFTER the regular update
 		 *
 		 */
-		virtual void lateUpdate() { Logger::log(tag + " LateUpdate"); }
+		virtual void lateUpdate() {  }
 		/*!
 		 * @brief called when the object is being destroyed
 		 *
 		 */
-		virtual void onDestroy() { Logger::log(tag + " Destroyed"); }
+		virtual void onDestroy() { }
 		/*!
 		 * @brief called last and manages drawing stuff
 		 *
 		 */
-		virtual void draw() { Logger::log(tag + " Draw"); }
+		virtual void draw() {  }
 	};
 }

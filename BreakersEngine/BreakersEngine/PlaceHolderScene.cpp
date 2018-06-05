@@ -1,6 +1,12 @@
 #include "PlaceHolderScene.h"
 #include "System\Application.h"
 
+void Aoyama::update()
+{
+	sp.setPosition(this->transform.getPosition());
+	sp.setRotation(this->transform.getRotation());
+}
+
 void Aoyama::draw()
 {
 	DRAW(sp);
@@ -9,6 +15,7 @@ void Aoyama::draw()
 void Aoyama::onInit()
 {
 	sp.setTexture(ASSET_MANAGER.getTexture("Aoyama"));
+
 }
 
 Aoyama::Aoyama() : Object("Aoyama")
@@ -33,15 +40,15 @@ MySceneState::MySceneState()
 
 void MySceneState::onEnter()
 {
-	BE::Logger::log("ent");
+
 }
 
 void MySceneState::update()
 {
-	BE::Logger::log("upd");
+
 }
 
 void MySceneState::onExit()
 {
-	BE::Logger::log("exi");
+
 }

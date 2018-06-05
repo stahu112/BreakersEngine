@@ -9,11 +9,18 @@
 #include "Time.h"
 #include <thread>
 #include "../SceneManager.h"
+#include "../InputManager.h"
 
 #define APP BE::System::Application::get()
 #define SCENE_MANAGER BE::System::Application::get()->sceneManager
 #define ASSET_MANAGER BE::System::Application::get()->assetManager
+#define INPUT_MANAGER BE::System::Application::get()->inputManager
 #define DRAW BE::System::Application::get()->window->draw
+#define KEY sf::Keyboard::Key
+#define KEYM sf::Mouse::Button
+#define DT BE::System::Application::get()->time.dt
+#define FPS BE::System::Application::get()->time.fps
+#define FDT BE::System::Application::get()->time.fixedDt
 
 /*!
  * @brief Main namespace of the engine
@@ -56,8 +63,11 @@ namespace BE
 			Settings settings{};
 
 			bool running{ false };
+			AssetParser assetParser{};
+			SettingsParser settingsParser{};
 
 		public:
+			Time time;
 			/*!
 			 * @brief Pointer to the main window
 			 *
@@ -69,8 +79,12 @@ namespace BE
 			 *
 			 */
 			Assets::AssetManager assetManager{};
-			AssetParser assetParser{};
-			SettingsParser settingsParser{};
+
+			/*!
+			 * @brief Input manager handling user input
+			 *
+			 */
+			InputManager inputManager{};
 
 			/*!
 			 * @brief Delete copy constructor

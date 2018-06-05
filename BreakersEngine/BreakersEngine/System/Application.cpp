@@ -16,12 +16,14 @@ namespace BE
 			{
 
 				dt = dtClock.restart();
-				Time::dt = dt.asSeconds();
-				Time::fps = 1 / dt.asSeconds();
+				time.dt = dt.asSeconds();
+				time.fps = 1 / dt.asSeconds();
 
 				sf::Event e;
 				while (window->pollEvent(e))
 				{
+
+
 					if (e.type == sf::Event::Closed) exit();
 				}
 				window->clear();

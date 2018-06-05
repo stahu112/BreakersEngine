@@ -6,6 +6,7 @@ namespace BE
 	void Window::init(System::Settings sets)
 	{
 		set = sets;
+
 	}
 
 	void Window::reset(System::Settings sets)
