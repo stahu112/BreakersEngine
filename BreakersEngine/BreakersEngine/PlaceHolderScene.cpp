@@ -3,6 +3,10 @@
 
 void Aoyama::update()
 {
+	if (INPUT_MANAGER.keyHeld("test")) {
+		transform.translate({ 10, 0 });
+	}
+
 	sp.setPosition(this->transform.getPosition());
 	sp.setRotation(this->transform.getRotation());
 }

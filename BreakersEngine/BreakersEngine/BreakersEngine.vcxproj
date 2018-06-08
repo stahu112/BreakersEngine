@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\Depedencies\pugi\pugixml.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="GUI\Window.cpp" />
     <ClCompile Include="Logger.cpp" />

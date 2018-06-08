@@ -19,11 +19,11 @@ namespace BE
 				time.dt = dt.asSeconds();
 				time.fps = 1 / dt.asSeconds();
 
+				inputManager.updateKeyboard();
+				inputManager.updateMouse();
+
 				sf::Event e;
-				while (window->pollEvent(e))
-				{
-
-
+				while (window->pollEvent(e)) {
 					if (e.type == sf::Event::Closed) exit();
 				}
 				window->clear();
@@ -46,6 +46,9 @@ namespace BE
 		{
 			assetManager = assetParser.parse();
 			settings = settingsParser.parse();
+
+			inputManager.addKeyboardBinding(BINDING("test", KEY::W));
+
 			window = std::make_unique<Window>(settings);
 		}
 

@@ -16,8 +16,7 @@
 #define ASSET_MANAGER BE::System::Application::get()->assetManager
 #define INPUT_MANAGER BE::System::Application::get()->inputManager
 #define DRAW BE::System::Application::get()->window->draw
-#define KEY sf::Keyboard::Key
-#define KEYM sf::Mouse::Button
+
 #define DT BE::System::Application::get()->time.dt
 #define FPS BE::System::Application::get()->time.fps
 #define FDT BE::System::Application::get()->time.fixedDt

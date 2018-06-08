@@ -12,6 +12,21 @@ namespace BE
 				return "No object with this tag!";
 			}
 		};
+		struct EXBindingAlreadyExists : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "Binding already exists!";
+			}
+		};
+		struct EXBindingDoesntExists : public std::exception
+		{
+			virtual const char* what() const throw()
+			{
+				return "Such binding doesnt exists!";
+			}
+		};
+
 		struct EXSceneWithNameNotFound : public std::exception
 		{
 			virtual const char* what() const throw()
