@@ -22,7 +22,7 @@ namespace BE
 		friend class ObjectManager;
 		std::string tag{ "" };
 		void setTag(std::string tag_) { tag = tag_; }
-		bool active = true;
+		bool active{ false };
 
 	public:
 		/*!
@@ -60,7 +60,7 @@ namespace BE
 		* @brief Dectivate object
 		*
 		*/
-		void dectivate();
+		void deActivate();
 		/*!
 		 * @brief returns tag of the object
 		 *

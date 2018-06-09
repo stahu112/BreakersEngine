@@ -18,6 +18,32 @@ void BE::ObjectManager::addObject(Object * obj)
 	this->objectMap.at(obj->getTag())->onInit();
 }
 
+void BE::ObjectManager::activate(std::string tag_)
+{
+	if (objectMap.find(tag_) != objectMap.end())
+	{
+		objectMap.at(tag_)->activate();
+	}
+	else
+	{
+		throw Exceptions::EXObjectWithTagNotFound{};
+	}
+}
+
+void BE::ObjectManager::deActivate(std::string tag_)
+{
+
+	if (objectMap.find(tag_) != objectMap.end())
+	{
+		objectMap.at(tag_)->deActivate();
+	}
+	else
+	{
+		throw Exceptions::EXObjectWithTagNotFound{};
+	}
+
+}
+
 void BE::ObjectManager::callUpdate()
 {
 	for (auto &x : objectMap)

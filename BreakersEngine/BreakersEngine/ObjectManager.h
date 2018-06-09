@@ -81,6 +81,10 @@ namespace BE
 		 * @param obj - Object to add
 		 */
 		void addObject(Object* obj);
+
+		void activate(std::string tag_);
+		void deActivate(std::string tag_);
+
 		/*!
 		 * @brief Call update method from all the stored objects
 		 *

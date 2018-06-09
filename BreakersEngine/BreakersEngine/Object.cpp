@@ -18,7 +18,7 @@ void BE::Object::activate() {
 * @brief Dectivate object
 *
 */
-void BE::Object::dectivate() {
+void BE::Object::deActivate() {
 	if (!active) return;
 	else
 	{

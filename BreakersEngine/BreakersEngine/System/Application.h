@@ -15,6 +15,7 @@
 #define SCENE_MANAGER BE::System::Application::get()->sceneManager
 #define ASSET_MANAGER BE::System::Application::get()->assetManager
 #define INPUT_MANAGER BE::System::Application::get()->inputManager
+#define ACTIVE_SCENE BE::System::Application::get()->sceneManager.currentScene
 #define DRAW BE::System::Application::get()->window->draw
 
 #define DT BE::System::Application::get()->time.dt

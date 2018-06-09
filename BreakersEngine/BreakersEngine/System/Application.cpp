@@ -48,6 +48,7 @@ namespace BE
 			settings = settingsParser.parse();
 
 			inputManager.addKeyboardBinding(BINDING("test", KEY::W));
+			inputManager.addKeyboardBinding(BINDING("Active", KEY::A));
 
 			window = std::make_unique<Window>(settings);
 		}

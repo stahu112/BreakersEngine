@@ -49,7 +49,19 @@ void MySceneState::onEnter()
 
 void MySceneState::update()
 {
-
+	try {
+		if (INPUT_MANAGER.keyReleased("Active"))
+		{
+			if (!ACTIVE_SCENE->objectManager.getObjectByTag("Aoyama")->isActive())
+				ACTIVE_SCENE->objectManager.activate("Aoyama");
+			else
+				ACTIVE_SCENE->objectManager.deActivate("Aoyama");
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void MySceneState::onExit()
