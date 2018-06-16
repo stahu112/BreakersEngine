@@ -1,10 +1,12 @@
 #pragma once
 #include "Object.h"
+#include <SFML\Audio.hpp>
 #include "Scene.h"
 
 class Aoyama : public BE::Object
 {
 	sf::Sprite sp;
+	sf::Sound snd;
 
 	void update() override final;
 

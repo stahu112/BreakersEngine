@@ -47,7 +47,7 @@ namespace BE
 					std::string name = attr.value();
 					attr = attr.next_attribute();
 					std::string path = attr.value();
-					//TODO Add sound parse
+					am.addAsset(Assets::Type::Sound, name, path);
 				}
 				else
 				{

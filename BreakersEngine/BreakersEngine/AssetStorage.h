@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include <SFML\Audio.hpp>
 #include "Exceptions.h"
 #include <map>
-
+#include <iostream>
 
 namespace BE
 {
@@ -68,6 +69,25 @@ namespace BE
 				}
 				else
 				{
+					throw Exceptions::EXWrongPath{};
+				}
+			}
+		};
+
+		class SoundManager : public AssetObjectInterface<sf::SoundBuffer>
+		{
+		public:
+			void addAsset(std::string en, std::string path) override final
+			{
+				checkIfExist(en);
+				sf::SoundBuffer sound;
+				if (sound.loadFromFile(path))
+				{
+					resMap.insert(std::make_pair(en, sound));
+				}
+				else
+				{
+					std::cout << "WADW" << std::endl;
 					throw Exceptions::EXWrongPath{};
 				}
 			}
