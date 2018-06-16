@@ -8,6 +8,7 @@
 			</Fonts>
 			
 			<Sounds>
+				<Sound name="Sound" path="Resources/Sounds/Sound.ogg"/>
 			</Sounds>
 			
 	</ResourceList>

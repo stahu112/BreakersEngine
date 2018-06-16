@@ -13,6 +13,11 @@ namespace BE
 		{
 			return fontManager.get(en);
 		}
+		const sf::SoundBuffer & AssetManager::getSound(std::string en)
+		{
+			return soundManager.get(en);
+		}
+
 		void AssetManager::addAsset(Type which, std::string name, std::string path)
 		{
 			switch (which)
@@ -22,6 +27,9 @@ namespace BE
 				break;
 			case Type::Font:
 				fontManager.addAsset(name, path);
+				break;
+			case Type::Sound:
+				soundManager.addAsset(name, path);
 				break;
 			}
 		}

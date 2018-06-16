@@ -4,7 +4,18 @@
 void Aoyama::update()
 {
 	if (INPUT_MANAGER.keyHeld("test")) {
-		transform.translate({ 10, 0 });
+		transform.translate({ 1, 0 });
+		if (snd.getStatus() != sf::Sound::Status::Playing)
+			snd.play();
+	}
+	else
+	{
+		snd.pause();
+	}
+
+	if (INPUT_MANAGER.mButtonHeld("M1"))
+	{
+		transform.rotate(5);
 	}
 
 	sp.setPosition(this->transform.getPosition());
@@ -18,8 +29,10 @@ void Aoyama::draw()
 
 void Aoyama::onInit()
 {
+	transform.setPosition({ 100, 100 });
 	sp.setTexture(ASSET_MANAGER.getTexture("Aoyama"));
 
+	snd.setBuffer(ASSET_MANAGER.getSound("Sound"));
 }
 
 Aoyama::Aoyama() : Object("Aoyama")

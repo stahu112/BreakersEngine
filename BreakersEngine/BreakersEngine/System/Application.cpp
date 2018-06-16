@@ -49,6 +49,7 @@ namespace BE
 
 			inputManager.addKeyboardBinding(BINDING("test", KEY::W));
 			inputManager.addKeyboardBinding(BINDING("Active", KEY::A));
+			inputManager.addMouseBinding(BINDING("M1", MBUTTON::Left));
 
 			window = std::make_unique<Window>(settings);
 		}
