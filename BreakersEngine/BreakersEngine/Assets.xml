@@ -2,6 +2,7 @@
     <ResourceList>
             <Textures>
                 <Texture name="Aoyama" path="Resources/Textures/aoy.jpg"/>
+				<Texture name="Anim" path="Resources/Textures/runningcat.png"/>
 			</Textures>
 			
 			<Fonts>

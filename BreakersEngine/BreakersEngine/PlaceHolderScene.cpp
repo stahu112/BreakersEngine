@@ -3,6 +3,8 @@
 
 void Aoyama::update()
 {
+	anim.updateAnimation(TIME.dt);
+
 	if (INPUT_MANAGER.keyHeld("test")) {
 		transform.translate({ 100 * TIME.dt, 0 });
 		if (snd.getStatus() != sf::Sound::Status::Playing)
@@ -24,15 +26,29 @@ void Aoyama::update()
 
 void Aoyama::draw()
 {
+	sp.setTexture(ASSET_MANAGER.getTexture("Anim"));
+	if (anim.getFrame())
+		sp.setTextureRect(anim.getFrame()->rect);
 	DRAW(sp);
 }
 
 void Aoyama::onInit()
 {
 	transform.setPosition({ 100, 100 });
-	sp.setTexture(ASSET_MANAGER.getTexture("Aoyama"));
+	anim.addFrame({ 0,0,512,256 }, 1);
+	anim.addFrame({ 512,0,512,256 }, 1);
+	anim.addFrame({ 0,256,512,256 }, 1);
+	anim.addFrame({ 512,256,512,256 }, 1);
+	anim.addFrame({ 0,512,512,256 }, 1);
+	anim.addFrame({ 512,512,512,256 }, 1);
+	anim.addFrame({ 0,768,512,256 }, 1);
+	anim.addFrame({ 512,768,512,256 }, 1);
 
 	snd.setBuffer(ASSET_MANAGER.getSound("Sound"));
+
+	anim.setLooped(true);
+	anim.play();
+
 }
 
 Aoyama::Aoyama() : Object("Aoyama")

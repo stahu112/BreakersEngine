@@ -9,12 +9,12 @@ namespace BE
 		sf::IntRect rect{ 0,0,0,0 };
 
 		//Time of frame in frames
-		unsigned frameTime{ 0 };
+		float frameTime{ 0 };
 
 		//First two arguments are the position of top left corner of the frame from spritesheet
 		//Two next are width and height of the frame
 		//time is the time that the frame will last 
-		SpriteSheetAnimationFrame(sf::IntRect intRect, unsigned time) : rect(intRect), frameTime(time) {}
+		SpriteSheetAnimationFrame(sf::IntRect intRect, float time) : rect(intRect), frameTime(time) {}
 	};
 
 	enum AnimationStatus
@@ -22,19 +22,21 @@ namespace BE
 		PLAYING,
 		STOPPED,
 		PAUSED,
+		FINISHED,
 		IDLE
 	};
 
 	class AnimationInterface
 	{
+	protected:
 		AnimationStatus status = IDLE;
 		bool loop{ false };
 
-		std::string name{ "" };
+		std::string name_{ "" };
 
 	public:
 
-		virtual void updateAnimation() = 0;
+		virtual void updateAnimation(float dt) = 0;
 
 		virtual void play() = 0;
 		virtual void stop() = 0;
@@ -44,6 +46,7 @@ namespace BE
 		bool isLooped() { return loop; }
 
 		AnimationStatus getStatus() { return status; }
+		AnimationInterface(std::string name) : name_(name) {}
 	};
 
 

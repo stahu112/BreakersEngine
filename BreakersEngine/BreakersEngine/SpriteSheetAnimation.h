@@ -7,25 +7,29 @@ namespace BE {
 	{
 		std::vector<SpriteSheetAnimationFrame> frameVector;
 
-		unsigned length{ 0 };
+		float length{ 0 };
+		float counter{ 0 };
+		unsigned frameCounter{ 0 };
+
+		SpriteSheetAnimationFrame* currentFrame;
 
 	public:
 
 		unsigned getLength() { return 0; }
 
-		void updateAnimation() override;
+		void updateAnimation(float dt) override;
 
 		void play() override;
 		void stop() override;
 		void pause() override;
 
-		void addFrame(sf::IntRect intRect, unsigned time);
+		void addFrame(sf::IntRect intRect, float time);
 		void addFrame(SpriteSheetAnimationFrame &frame);
 
-		SpriteSheetAnimation();
-		SpriteSheetAnimation(std::string name);
+		SpriteSheetAnimationFrame* getFrame() { return currentFrame; }
 
-		~SpriteSheetAnimation();
+		SpriteSheetAnimation(std::string name) : AnimationInterface(name) {}
+
 	};
 
 } //End namespace

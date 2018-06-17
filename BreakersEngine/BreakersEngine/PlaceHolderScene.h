@@ -2,6 +2,7 @@
 #include "Object.h"
 #include <SFML\Audio.hpp>
 #include "Scene.h"
+#include "SpriteSheetAnimation.h"
 
 class Aoyama : public BE::Object
 {
@@ -14,6 +15,9 @@ class Aoyama : public BE::Object
 	void onInit() override;
 
 public:
+
+	BE::SpriteSheetAnimation anim{ "testanim" };
+
 	void setTex(sf::Texture tex)
 	{
 		sp.setTexture(tex);
