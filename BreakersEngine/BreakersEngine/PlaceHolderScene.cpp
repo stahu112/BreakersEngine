@@ -4,7 +4,7 @@
 void Aoyama::update()
 {
 	if (INPUT_MANAGER.keyHeld("test")) {
-		transform.translate({ 1, 0 });
+		transform.translate({ 100 * TIME.dt, 0 });
 		if (snd.getStatus() != sf::Sound::Status::Playing)
 			snd.play();
 	}
@@ -65,10 +65,7 @@ void MySceneState::update()
 	try {
 		if (INPUT_MANAGER.keyReleased("Active"))
 		{
-			if (!ACTIVE_SCENE->objectManager.getObjectByTag("Aoyama")->isActive())
-				ACTIVE_SCENE->objectManager.activate("Aoyama");
-			else
-				ACTIVE_SCENE->objectManager.deActivate("Aoyama");
+			TIME.timeScale += 1;
 		}
 	}
 	catch (std::exception &e)

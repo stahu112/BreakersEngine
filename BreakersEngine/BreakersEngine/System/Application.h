@@ -18,6 +18,8 @@
 #define ACTIVE_SCENE BE::System::Application::get()->sceneManager.currentScene
 #define DRAW BE::System::Application::get()->window->draw
 
+#define TIME BE::System::Application::get()->time
+
 #define DT BE::System::Application::get()->time.dt
 #define FPS BE::System::Application::get()->time.fps
 #define FDT BE::System::Application::get()->time.fixedDt

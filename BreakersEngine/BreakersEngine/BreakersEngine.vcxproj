@@ -31,12 +31,14 @@
     <ClCompile Include="PlaceHolderScene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneState.cpp" />
+    <ClCompile Include="SpriteSheetAnimation.cpp" />
     <ClCompile Include="System\Application.cpp" />
     <ClCompile Include="System\Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Depedencies\pugi\pugiconfig.hpp" />
     <ClInclude Include="..\Depedencies\pugi\pugixml.hpp" />
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Parser.h" />
@@ -50,6 +52,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneState.h" />
+    <ClInclude Include="SpriteSheetAnimation.h" />
     <ClInclude Include="System\Application.h" />
     <ClInclude Include="System\Settings.h" />
     <ClInclude Include="System\SettingsTypes.h" />

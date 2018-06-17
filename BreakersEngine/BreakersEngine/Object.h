@@ -22,7 +22,7 @@ namespace BE
 		friend class ObjectManager;
 		std::string tag{ "" };
 		void setTag(std::string tag_) { tag = tag_; }
-		bool active{ false };
+		bool active{ true };
 
 	public:
 		/*!

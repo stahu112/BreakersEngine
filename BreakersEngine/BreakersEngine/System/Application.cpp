@@ -16,7 +16,7 @@ namespace BE
 			{
 
 				dt = dtClock.restart();
-				time.dt = dt.asSeconds();
+				time.dt = dt.asSeconds() * time.timeScale;
 				time.fps = 1 / dt.asSeconds();
 
 				inputManager.updateKeyboard();
@@ -26,10 +26,9 @@ namespace BE
 				while (window->pollEvent(e)) {
 					if (e.type == sf::Event::Closed) exit();
 				}
+
 				window->clear();
-
 				sceneManager.currentScene->stateMachine->updateLoop();
-
 				window->display();
 			}
 
