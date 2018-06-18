@@ -6,7 +6,6 @@ namespace BE {
 	{
 		if (status == PLAYING) {
 
-			currentFrame = &frameVector[frameCounter];
 			if (counter < currentFrame->frameTime)
 			{
 				counter += dt;
@@ -15,17 +14,19 @@ namespace BE {
 			{
 				counter = 0;
 				frameCounter++;
-				if (frameCounter > frameVector.size() && loop)
-				{
-					frameCounter = 0;
-				}
-				else if (!loop)
+				if (frameCounter >= frameVector.size() && !loop)
 				{
 					status = FINISHED;
 					frameCounter = 0;
 					return;
 				}
+				else if(frameCounter >= frameVector.size())
+				{
+					frameCounter = 0;
+				}
 			}
+			
+			currentFrame = &frameVector[frameCounter];
 		}
 	}
 
@@ -47,11 +48,14 @@ namespace BE {
 	{
 		frameVector.emplace_back(intRect, time);
 		length += time;
+		currentFrame = &frameVector[0];
+
 	}
 	void SpriteSheetAnimation::addFrame(SpriteSheetAnimationFrame & frame)
 	{
 		length += frame.frameTime;
 		frameVector.push_back(frame);
+		currentFrame = &frameVector[0];
 	}
 
 }

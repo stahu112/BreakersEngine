@@ -26,23 +26,24 @@ void Aoyama::update()
 
 void Aoyama::draw()
 {
-	sp.setTexture(ASSET_MANAGER.getTexture("Anim"));
-	if (anim.getFrame())
-		sp.setTextureRect(anim.getFrame()->rect);
+	sp.setTextureRect(anim.getFrame()->rect);
 	DRAW(sp);
 }
 
 void Aoyama::onInit()
 {
+	sp.setTexture(ASSET_MANAGER.getTexture("Anim"));
+
 	transform.setPosition({ 100, 100 });
-	anim.addFrame({ 0,0,512,256 }, 1);
-	anim.addFrame({ 512,0,512,256 }, 1);
-	anim.addFrame({ 0,256,512,256 }, 1);
-	anim.addFrame({ 512,256,512,256 }, 1);
-	anim.addFrame({ 0,512,512,256 }, 1);
-	anim.addFrame({ 512,512,512,256 }, 1);
-	anim.addFrame({ 0,768,512,256 }, 1);
-	anim.addFrame({ 512,768,512,256 }, 1);
+	
+	anim.addFrame({ 0,0,512,256 }, .05f);
+	anim.addFrame({ 512,0,512,256 }, .05f);
+	anim.addFrame({ 0,256,512,256 }, .05f);
+	anim.addFrame({ 512,256,512,256 }, .1f);
+	anim.addFrame({ 0,512,512,256 }, .1f);
+	anim.addFrame({ 512,512,512,256 }, .1f);
+	anim.addFrame({ 0,768,512,256 }, .05f);
+	anim.addFrame({ 512,768,512,256 }, .05f);
 
 	snd.setBuffer(ASSET_MANAGER.getSound("Sound"));
 
