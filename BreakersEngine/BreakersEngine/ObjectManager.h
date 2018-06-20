@@ -85,6 +85,8 @@ namespace BE
 		void activate(std::string tag_);
 		void deActivate(std::string tag_);
 
+
+		void callFixedUpdate();
 		/*!
 		 * @brief Call update method from all the stored objects
 		 *

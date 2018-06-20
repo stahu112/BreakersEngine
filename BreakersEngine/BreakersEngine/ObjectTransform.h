@@ -19,11 +19,11 @@ namespace BE
 
 	public:
 
-		static const sf::Vector2f& right() { sf::Vector2f vec{ 1,0 }; return vec; }
-		static const sf::Vector2f& left() { sf::Vector2f vec{ -1,0 }; return vec; }
-		static const sf::Vector2f& up() { sf::Vector2f vec{ 0,-1 }; return vec; }
-		static const sf::Vector2f& down() { sf::Vector2f vec{ 0,1 }; return vec; }
-		static const sf::Vector2f& zero() { sf::Vector2f vec{ 0,0 }; return vec; }
+		static const sf::Vector2f right() { sf::Vector2f vec{ 1,0 }; return vec; }
+		static const sf::Vector2f left() { sf::Vector2f vec{ -1,0 }; return vec; }
+		static const sf::Vector2f up() { sf::Vector2f vec{ 0,-1 }; return vec; }
+		static const sf::Vector2f down() { sf::Vector2f vec{ 0,1 }; return vec; }
+		static const sf::Vector2f zero() { sf::Vector2f vec{ 0,0 }; return vec; }
 
 		void addChild(Transform& tr)
 		{

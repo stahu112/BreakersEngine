@@ -15,6 +15,11 @@ void BE::SceneStateMachine::updateLoop()
 	parentScene->objectManager.callDraw();
 }
 
+void BE::SceneStateMachine::fixedUpdateLoop()
+{
+	parentScene->objectManager.callFixedUpdate();
+}
+
 BE::SceneStateMachine::SceneStateMachine(std::unique_ptr<Scene> parent, std::shared_ptr<SceneState> initialState)
 {
 	parentScene = std::move(parent);

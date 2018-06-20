@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <thread>
 #include "Settings.h"
 #include "../Parser.h"
 #include "../AssetManager.h"

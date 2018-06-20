@@ -10,6 +10,7 @@ class Aoyama : public BE::Object
 	sf::Sound snd;
 
 	void update() override final;
+	void fixedUpdate() override final;
 
 	void draw() override final;
 	void onInit() override;

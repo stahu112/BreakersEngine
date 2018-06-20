@@ -44,6 +44,17 @@ void BE::ObjectManager::deActivate(std::string tag_)
 
 }
 
+void BE::ObjectManager::callFixedUpdate()
+{
+	for (auto &x : objectMap)
+	{
+		if (x.second != nullptr)
+		{
+			if (x.second->active) x.second->fixedUpdate();
+		}
+	}
+}
+
 void BE::ObjectManager::callUpdate()
 {
 	for (auto &x : objectMap)

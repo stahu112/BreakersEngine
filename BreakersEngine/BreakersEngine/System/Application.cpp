@@ -9,8 +9,15 @@ namespace BE
 		{
 			running = true;
 
-			sf::Clock dtClock;
+			sf::Clock dtClock, fixedClock;
 			sf::Time dt;
+
+			std::thread fixedUpdateThread([&]() {
+				while (running) {
+					sceneManager.currentScene->stateMachine->fixedUpdateLoop();
+					std::this_thread::sleep_for(std::chrono::milliseconds(time.fixedDt));
+				}
+			});
 
 			while (running)
 			{
@@ -29,9 +36,10 @@ namespace BE
 
 				window->clear();
 				sceneManager.currentScene->stateMachine->updateLoop();
+				
 				window->display();
 			}
-
+			fixedUpdateThread.join();
 		}
 
 		void Application::exit()

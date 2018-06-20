@@ -50,6 +50,14 @@ namespace BE
 		 *
 		 */
 		void updateLoop();
+
+		/*!
+		*
+		* @brief Fixed Update
+		* Calls the fixedUpdate
+		*/
+		void fixedUpdateLoop();
+
 		std::shared_ptr<SceneState> getActiveState() { return stateStack.top(); };
 		/*!
 		 * @brief Pointer to the Scene to witch the instance of SceneStateMachine belongs

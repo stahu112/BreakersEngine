@@ -15,11 +15,11 @@ namespace BE
 		*/
 		float dt = 0.0f;
 		/*!
-		* @brief Fixed constant TimeStep
+		* @brief Fixed constant TimeStep in milliseconds
 		*
 		* @note If you do any physics calculations, you should use this instead of dt to avoid undefined behaviour
 		*/
-		float fixedDt = 0.016667f;
+		long fixedDt = 16l;
 		/*!
 		* @brief Current frames per second
 		*

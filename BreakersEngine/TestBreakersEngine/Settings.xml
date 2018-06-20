@@ -2,8 +2,8 @@
 	<Config>
 	
 		<WindowSettings>
-			<Width>1366</Width>
-			<Height>768</Height>
+			<Width>30</Width>
+			<Height>300</Height>
 			<Fullscreen>OFF</Fullscreen>
 		</WindowSettings>
 	
@@ -14,6 +14,8 @@
 			
 			<DoubleBuff>OFF</DoubleBuff>
 			<VSync>ON</VSync>
+			
+			<FPSLimit>1337</FPSLimit>
  		</RenderSettings>
 	
 		<GameSettings>

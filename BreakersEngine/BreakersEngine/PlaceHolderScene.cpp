@@ -6,7 +6,7 @@ void Aoyama::update()
 	anim.updateAnimation(TIME.dt);
 
 	if (INPUT_MANAGER.keyHeld("test")) {
-		transform.translate({ 100 * TIME.dt, 0 });
+		transform.translate({ 1000 * TIME.dt, 0 });
 		if (snd.getStatus() != sf::Sound::Status::Playing)
 			snd.play();
 	}
@@ -22,6 +22,11 @@ void Aoyama::update()
 
 	sp.setPosition(this->transform.getPosition());
 	sp.setRotation(this->transform.getRotation());
+}
+
+void Aoyama::fixedUpdate()
+{
+	transform.setPosition({ 300,300 });
 }
 
 void Aoyama::draw()
@@ -65,6 +70,7 @@ void PlaceHolderScene::initScene()
 {
 	objectManager.addObject(new Aoyama);
 	BE::Logger::log("init");
+	TIME.fixedDt = 1000;
 }
 
 MySceneState::MySceneState()

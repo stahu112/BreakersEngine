@@ -5,10 +5,40 @@
 namespace BE
 {
 	System::Settings SettingsParser::parse()
-	{
-		// TODO: insert return statement here
-
+	{		
 		System::Settings set{};
+	
+		if (!doc.load_file(path.data())) throw BE::Exceptions::EXNoConfigFile{};
+
+		pugi::xml_node setGrp = doc.child("Config");
+
+		for (pugi::xml_node grp = setGrp.first_child(); grp; grp = grp.next_sibling())
+		{
+			for (pugi::xml_node child = grp.first_child(); child; child = child.next_sibling())
+			{
+				std::string name = child.name();
+
+				if (name == "Width")
+					set.windowSettings.width = child.text().as_uint();
+				if (name == "Height")
+					set.windowSettings.height = child.text().as_uint();
+				if (name == "Fullscreen")
+					set.windowSettings.fullscreen = child.text().as_bool();
+				if (name == "ClearColorR")
+					set.renderSettings.clearColor.r = child.text().as_int();
+				if (name == "ClearColorG")
+					set.renderSettings.clearColor.g = child.text().as_int();
+				if (name == "ClearColorB")
+					set.renderSettings.clearColor.b = child.text().as_int();
+				if (name == "DoubleBuff")
+					set.renderSettings.doubleBuffering = child.text().as_bool();
+				if (name == "VSync")
+					set.renderSettings.verticalSync = child.text().as_bool();
+				if (name == "FPSLimit")
+					set.renderSettings.fpsLimit = child.text().as_int();
+			}
+		}
+		
 		return set;
 	}
 
