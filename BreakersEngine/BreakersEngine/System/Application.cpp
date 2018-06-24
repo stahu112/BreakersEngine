@@ -36,7 +36,7 @@ namespace BE
 
 				window->clear();
 				sceneManager.currentScene->stateMachine->updateLoop();
-				
+
 				window->display();
 			}
 			fixedUpdateThread.join();
@@ -52,13 +52,12 @@ namespace BE
 		Application::Application()
 		{
 			assetManager = assetParser.parse();
-			settings = settingsParser.parse();
 
 			inputManager.addKeyboardBinding(BINDING("test", KEY::W));
 			inputManager.addKeyboardBinding(BINDING("Active", KEY::A));
 			inputManager.addMouseBinding(BINDING("M1", MBUTTON::Left));
 
-			window = std::make_unique<Window>(settings);
+			window = std::make_unique<Window>(settingsParser.parse());
 		}
 
 	} //End namespace System

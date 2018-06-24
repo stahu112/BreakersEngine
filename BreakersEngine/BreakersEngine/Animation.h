@@ -33,9 +33,14 @@ namespace BE
 		bool loop{ false };
 
 		std::string name_{ "" };
+		float length{ 0 };
+
+		float counter{ 0 };
+		unsigned frameCounter{ 0 };
 
 	public:
 
+		//Virtuals
 		virtual void updateAnimation(float dt) = 0;
 
 		virtual void play() = 0;
@@ -44,6 +49,7 @@ namespace BE
 
 		void setLooped(bool bl) { loop = bl; }
 		bool isLooped() { return loop; }
+		float getLength() { return length; }
 
 		AnimationStatus getStatus() { return status; }
 		AnimationInterface(std::string name) : name_(name) {}

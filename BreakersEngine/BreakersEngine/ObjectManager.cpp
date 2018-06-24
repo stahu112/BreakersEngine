@@ -15,6 +15,8 @@ void BE::ObjectManager::addObject(Object * obj)
 	}
 
 	this->objectMap.insert(std::make_pair(obj->getTag(), obj));
+	this->drawVector.push_back(obj);
+	sortZ();
 	this->objectMap.at(obj->getTag())->onInit();
 }
 
@@ -80,11 +82,11 @@ void BE::ObjectManager::callLateUpdate()
 //TODO Z factor
 void BE::ObjectManager::callDraw()
 {
-	for (auto &x : objectMap)
+	for (auto &x : drawVector)
 	{
-		if (x.second != nullptr)
+		if (x != nullptr)
 		{
-			if (x.second->active) x.second->draw();
+			if (x->active) x->draw();
 		}
 	}
 }
@@ -110,6 +112,15 @@ unsigned int BE::ObjectManager::objectCount() const {
 	return objectMap.size();
 }
 
+void BE::ObjectManager::sortZ()
+{
+	std::sort(drawVector.begin(), drawVector.end(), [this](const Object* lhs, const Object* rhs)
+	{
+		return (lhs->transform.getZIndex() < rhs->transform.getZIndex());
+	}
+	);
+}
+
 void BE::ObjectManager::showContents()
 {
 
@@ -119,6 +130,14 @@ void BE::ObjectManager::showContents()
 	{
 		i++;
 		Logger::log(std::to_string(i) + ": " + x.first, false);
+	}
+	i = 0;
+	Logger::log("======================", false);
+	Logger::log("\n===== Contents of draw vector of " + this->tag + "[" + std::to_string(this->objectCount()) + "]" + " =====", false);
+	for (auto x : drawVector)
+	{
+		i++;
+		Logger::log(std::to_string(i) + ": " + x->tag, false);
 	}
 	Logger::log("======================", false);
 }

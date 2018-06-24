@@ -79,5 +79,8 @@ TEST_F(TestObjectManager, ShowContents)
 	{
 		objectManager.addObject(new Object);
 	}
+
+	objectManager.getObjectByTag("NewObject12")->transform.setZIndex(10);
+	objectManager.sortZ();
 	objectManager.showContents();
 }

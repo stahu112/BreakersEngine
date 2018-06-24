@@ -27,6 +27,7 @@ namespace BE
 		void display() { window.display(); }
 		void hide() { window.setVisible(false); }
 		void show() { window.setVisible(true); }
+		System::Settings getSettings() { return set; }
 		void setView(sf::View& view) { window.setView(view); }
 		sf::View getView() const { return window.getView(); }
 

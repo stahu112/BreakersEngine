@@ -7,15 +7,9 @@ namespace BE {
 	{
 		std::vector<SpriteSheetAnimationFrame> frameVector;
 
-		float length{ 0 };
-		float counter{ 0 };
-		unsigned frameCounter{ 0 };
-
 		SpriteSheetAnimationFrame* currentFrame;
 
 	public:
-
-		unsigned getLength() { return 0; }
 
 		void updateAnimation(float dt) override;
 

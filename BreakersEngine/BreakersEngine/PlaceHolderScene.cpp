@@ -40,7 +40,7 @@ void Aoyama::onInit()
 	sp.setTexture(ASSET_MANAGER.getTexture("Anim"));
 
 	transform.setPosition({ 100, 100 });
-	
+
 	anim.addFrame({ 0,0,512,256 }, .05f);
 	anim.addFrame({ 512,0,512,256 }, .05f);
 	anim.addFrame({ 0,256,512,256 }, .05f);

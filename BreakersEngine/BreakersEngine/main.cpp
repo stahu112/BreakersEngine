@@ -11,7 +11,7 @@ using namespace BE;
 
 int main()
 {
-	std::cout << APP->getSettings().stringify() << std::endl;
+	std::cout << WINDOW->getSettings().stringify() << std::endl;
 	APP->run();
 	return EXIT_SUCCESS;
 }

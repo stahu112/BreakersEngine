@@ -28,9 +28,16 @@ namespace BE
 	class ObjectManager
 	{
 		std::map<std::string, Object*> objectMap{};
+		std::vector<Object*> drawVector{};
 		std::string tag{ "" };
 
 	public:
+
+		/*
+		* @brief Sorts the objects by Z index for drawing
+		*
+		*/
+		void sortZ();
 		/*!
 		 * @brief Constructs ObjectManager with given name
 		 * @param tag_ - name of the ObjectManager

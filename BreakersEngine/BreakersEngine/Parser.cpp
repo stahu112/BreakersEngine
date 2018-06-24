@@ -5,9 +5,9 @@
 namespace BE
 {
 	System::Settings SettingsParser::parse()
-	{		
+	{
 		System::Settings set{};
-	
+
 		if (!doc.load_file(path.data())) throw BE::Exceptions::EXNoConfigFile{};
 
 		pugi::xml_node setGrp = doc.child("Config");
@@ -30,6 +30,8 @@ namespace BE
 					set.renderSettings.clearColor.g = child.text().as_int();
 				if (name == "ClearColorB")
 					set.renderSettings.clearColor.b = child.text().as_int();
+				if (name == "ClearColorA")
+					set.renderSettings.clearColor.a = child.text().as_int();
 				if (name == "DoubleBuff")
 					set.renderSettings.doubleBuffering = child.text().as_bool();
 				if (name == "VSync")
@@ -38,7 +40,7 @@ namespace BE
 					set.renderSettings.fpsLimit = child.text().as_int();
 			}
 		}
-		
+
 		return set;
 	}
 

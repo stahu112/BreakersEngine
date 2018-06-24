@@ -60,7 +60,10 @@ namespace BE
 		 * @brief Construct the scene with given tag
 		 * @param tag_ - name of a scene
 		 */
-		Scene(std::string tag_ = "New Scene") : tag(tag_) { initSM(); }
+		Scene(std::string tag_ = "New Scene") : tag(tag_)
+		{
+			initSM();
+		}
 		~Scene() {}
 
 

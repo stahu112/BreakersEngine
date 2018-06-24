@@ -13,6 +13,9 @@
 #include "../InputManager.h"
 
 #define APP BE::System::Application::get()
+#define WINDOW BE::System::Application::get()->window
+#define WINDOW_SETTINGS BE::System::Application::get()->window->getSettings().windowSettings
+#define RENDER_SETTINGS BE::System::Application::get()->window->getSettings().renderSettings
 #define SCENE_MANAGER BE::System::Application::get()->sceneManager
 #define ASSET_MANAGER BE::System::Application::get()->assetManager
 #define INPUT_MANAGER BE::System::Application::get()->inputManager
@@ -63,8 +66,6 @@ namespace BE
 		 */
 		class Application
 		{
-			Settings settings{};
-
 			bool running{ false };
 			AssetParser assetParser{};
 			SettingsParser settingsParser{};
@@ -125,12 +126,6 @@ namespace BE
 			 *
 			 */
 			SceneManager sceneManager{};
-
-			/*!
-			 * @brief returns settings of the window
-			 *
-			 */
-			Settings getSettings() { return settings; }
 
 			Application();
 			~Application() { /*Logger::log();*/ }

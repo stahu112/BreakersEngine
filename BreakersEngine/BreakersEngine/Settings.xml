@@ -11,6 +11,7 @@
 			<ClearColorR>100</ClearColorR>
 			<ClearColorG>100</ClearColorG>
 			<ClearColorB>100</ClearColorB>
+			<ClearColorA>0</ClearColorA>
 			
 			<DoubleBuff>OFF</DoubleBuff>
 			<VSync>ON</VSync>
