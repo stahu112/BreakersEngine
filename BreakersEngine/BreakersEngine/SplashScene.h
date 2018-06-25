@@ -8,27 +8,25 @@ namespace BE {
 
 	class SplashSceneState : public SceneState
 	{
-		float timer{ 0.0 };
-
 	public:
-		struct Splash
+
+		class Splash
 		{
+			sf::Texture tex;
+
+		public:
+
 			float length{ 0.0 };
-
-			sf::Sprite background;
-
-			void setBackground(sf::Texture tex)
-			{
-				background.setTexture(tex);
-			}
-
-			Splash(sf::Texture backgroundTex, float length_) : length(length_) {
-				background.setTexture(backgroundTex);
-			}
+			void fadeIn(float timer);
+			void fadeOut(float timer);
+			sf::RectangleShape fader;
+			sf::RectangleShape background;
+			Splash(sf::Texture backgroundTex, float length_, float fadeTime = 3);
+			Splash() {}
 		};
 
-		void addSplash(std::unique_ptr<Splash> splash);
-		std::queue<std::unique_ptr<Splash>> splashes;
+		void addSplash(sf::Texture splashTex, float splashLength);
+		std::queue<Splash> splashes;
 
 		virtual void onEnter() override final;
 		virtual void update() override final;
@@ -36,6 +34,10 @@ namespace BE {
 
 		SplashSceneState();
 
+	private:
+		sf::Texture tex;
+		float length{ 0 };
+		float timer{ 0.0 };
 	};
 
 	class SplashScene : public Scene
@@ -45,7 +47,7 @@ namespace BE {
 		void initScene() override;
 		void onChangeScene() override;
 
-		SplashScene() : Scene("Splash") {};
+		SplashScene() : Scene("SplashScene") {};
 	};
 
 } //End namespace

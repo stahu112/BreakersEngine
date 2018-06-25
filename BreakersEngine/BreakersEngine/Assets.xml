@@ -3,6 +3,7 @@
             <Textures>
                 <Texture name="Aoyama" path="Resources/Textures/aoy.jpg"/>
 				<Texture name="Anim" path="Resources/Textures/runningcat.png"/>
+				<Texture name="Splash1" path="Resources/Textures/splash1.jpg"/>
 			</Textures>
 			
 			<Fonts>

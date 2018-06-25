@@ -1,10 +1,12 @@
 #include "SceneManager.h"
+#include "SplashScene.h"
 #include "PlaceHolderScene.h"
 
 //TODO SPLASH SCENE
 BE::SceneManager::SceneManager() {
 	std::shared_ptr<Scene> scn = std::make_shared<Scene>();
 	addScene(scn);
+	addScene(std::make_shared<SplashScene>());
 	addScene(std::make_shared<PlaceHolderScene>());
 	currentScene.reset(scn.get());
 }
