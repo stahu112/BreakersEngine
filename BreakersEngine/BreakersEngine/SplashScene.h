@@ -21,7 +21,7 @@ namespace BE {
 			void fadeOut(float timer);
 			sf::RectangleShape fader;
 			sf::RectangleShape background;
-			Splash(sf::Texture backgroundTex, float length_, float fadeTime = 3);
+			Splash(sf::Texture backgroundTex, float length_, float fadeTime = 0);
 			Splash() {}
 		};
 
