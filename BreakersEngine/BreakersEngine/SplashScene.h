@@ -13,15 +13,17 @@ namespace BE {
 		class Splash
 		{
 			sf::Texture tex;
-
+			float fadeTime{ 2 };
+			bool fadedIn{ false };
 		public:
 
+			bool done{ false };
 			float length{ 0.0 };
 			void fadeIn(float timer);
 			void fadeOut(float timer);
 			sf::RectangleShape fader;
 			sf::RectangleShape background;
-			Splash(sf::Texture backgroundTex, float length_, float fadeTime = 0);
+			Splash(sf::Texture backgroundTex, float length_);
 			Splash() {}
 		};
 

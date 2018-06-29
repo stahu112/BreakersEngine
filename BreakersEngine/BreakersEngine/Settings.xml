@@ -2,9 +2,9 @@
 	<Config>
 	
 		<WindowSettings>
-			<Width>1366</Width>
-			<Height>768</Height>
-			<Fullscreen>OFF</Fullscreen>
+			<Width>1920</Width>
+			<Height>1080</Height>
+			<Fullscreen>TRUE</Fullscreen>
 		</WindowSettings>
 	
 		<RenderSettings>
@@ -13,8 +13,8 @@
 			<ClearColorB>100</ClearColorB>
 			<ClearColorA>0</ClearColorA>
 			
-			<DoubleBuff>OFF</DoubleBuff>
-			<VSync>ON</VSync>
+			<DoubleBuff>TRUE</DoubleBuff>
+			<VSync>TRUE</VSync>
  		</RenderSettings>
 	
 		<GameSettings>
