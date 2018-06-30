@@ -15,6 +15,13 @@ namespace BE {
 			sf::Texture tex;
 			float fadeTime{ 2 };
 			bool fadedIn{ false };
+
+			unsigned short startIn{ 255 };
+			unsigned short endIn{ 0 };
+			unsigned short startOut{ 0 };
+			unsigned short endOut{ 255 };
+
+
 		public:
 
 			bool done{ false };

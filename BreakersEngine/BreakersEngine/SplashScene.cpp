@@ -65,10 +65,10 @@ namespace BE
 		auto color = fader.getFillColor();
 		if (!fadedIn && timer < fadeTime) {
 
-			static float start = 255;
-			static float end = 0;
+			startIn = 255;
+			endIn = 0;
 
-			color.a = start + (end - start) * (timer / fadeTime);
+			color.a = startIn + (endIn - startIn) * (timer / fadeTime);
 		}
 		else
 			fadedIn = true;
@@ -82,10 +82,10 @@ namespace BE
 
 		if (fadedIn && timer > length - fadeTime) {
 
-			static float start = 0;
-			static float end = 255;
+			startOut = 0;
+			endOut = 255;
 
-			color.a = start + (end - start) * (timer / fadeTime);
+			color.a = startOut + (endOut - startOut) * (timer / fadeTime);
 
 			fader.setFillColor(color);
 			if (color.a > 244) done = true;
