@@ -5,7 +5,7 @@ namespace BE
 {
 	namespace System
 	{
-		void Application::run()
+		int Application::run()
 		{
 			running = true;
 
@@ -40,6 +40,7 @@ namespace BE
 				window->display();
 			}
 			fixedUpdateThread.join();
+			return 0;
 		}
 
 		void Application::exit()

@@ -113,7 +113,7 @@ namespace BE
 			 * @brief Starts main engine loop
 			 *
 			 */
-			void run();
+			int run();
 
 			/*!
 			 * @brief Exit method closes the window and ends the main loop
