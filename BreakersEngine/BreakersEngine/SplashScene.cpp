@@ -27,7 +27,6 @@ namespace BE
 
 	void SplashSceneState::update()
 	{
-
 		if (!splashes.empty()) {
 
 			if (!splashes.front().done)
@@ -47,7 +46,7 @@ namespace BE
 			}
 		}
 		else
-			SCENE_MANAGER.changeScene("PlaceHolderScene");
+			SCENE_MANAGER.changeSceneFade("PlaceHolderScene", true);
 	}
 
 	void SplashSceneState::onExit()

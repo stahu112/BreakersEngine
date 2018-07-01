@@ -8,7 +8,11 @@ BE::SceneManager::SceneManager() {
 	addScene(scn);
 	addScene(std::make_shared<SplashScene>());
 	addScene(std::make_shared<PlaceHolderScene>());
+	addScene(std::make_shared<PlaceHolderScene>("1"));
+	addScene(std::make_shared<PlaceHolderScene>("2"));
 	currentScene.reset(scn.get());
+
+	fader.setFillColor(sf::Color::Black);
 }
 
 void BE::SceneManager::addScene(std::shared_ptr<Scene> scn, bool overwrite) {
@@ -45,4 +49,72 @@ void BE::SceneManager::changeScene(std::string str)
 		currentScene.reset(sceneMap.at(str).get());
 		currentScene->initScene();
 	}
+}
+
+void BE::SceneManager::changeSceneFade(std::string str, bool noFade)
+{
+	fadeOut = true;
+	fadeIn = true;
+	strToChange = str;
+	if (noFade)
+	{
+		noFadeOut = true;
+		fadeOut = false;
+	}
+}
+
+void BE::SceneManager::updateFader(float timer, sf::Vector2f size)
+{
+	auto color = fader.getFillColor();
+	fader.setFillColor(color);
+
+	if (noFadeOut)
+	{
+		changeScene(strToChange);
+		noFadeOut = false;
+	}
+
+	if (fadeIn && !fadeOut && fadeTimer < 0.5) {
+
+
+		fader.setSize(size);
+		fadeTimer += timer;
+
+		endIn = 0;
+		startIn = 255;
+
+		color.a = startIn + (endIn - startIn) * (fadeTimer / 0.5);
+
+
+		fader.setFillColor(color);
+		if (fadeTimer > 0.5) {
+			fadeTimer = 0;
+			color.a = 0;
+			fader.setFillColor(color);
+			fadeIn = false;
+		}
+	}
+	fader.setFillColor(color);
+
+	if (fadeOut && fadeTimer < 0.5) {
+
+
+		fader.setSize(size);
+		//auto color = fader.getFillColor();
+		fadeTimer += timer;
+
+		startOut = 0;
+		endOut = 255;
+
+		color.a = startOut + (endOut - startOut) * (fadeTimer / 0.5);
+
+		fader.setFillColor(color);
+		if (fadeTimer > 0.5) {
+			fadeTimer = 0;
+			fadeOut = false;
+			color.a = 255;
+			changeScene(strToChange);
+		}
+	}
+	fader.setFillColor(color);
 }

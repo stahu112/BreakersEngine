@@ -37,6 +37,9 @@ namespace BE
 				window->clear();
 				sceneManager.currentScene->stateMachine->updateLoop();
 
+				sceneManager.updateFader(time.dt, { (float)window->getSettings().windowSettings.width, (float)window->getSettings().windowSettings.height });
+				window->draw(sceneManager.fader);
+
 				window->display();
 			}
 			fixedUpdateThread.join();

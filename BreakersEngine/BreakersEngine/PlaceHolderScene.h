@@ -40,7 +40,8 @@ public:
 class PlaceHolderScene : public BE::Scene
 {
 public:
-	PlaceHolderScene();
+	PlaceHolderScene(std::string str = "PlaceHolderScene");
+
 	void initScene() override final;
 };
 

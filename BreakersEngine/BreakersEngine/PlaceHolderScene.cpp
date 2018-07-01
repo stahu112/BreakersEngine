@@ -15,9 +15,9 @@ void Aoyama::update()
 		snd.pause();
 	}
 
-	if (INPUT_MANAGER.mButtonHeld("M1"))
+	if (INPUT_MANAGER.mButtonReleased("M1"))
 	{
-		transform.rotate(5);
+		SCENE_MANAGER.changeSceneFade("1");
 	}
 
 	sp.setPosition(this->transform.getPosition());
@@ -26,7 +26,7 @@ void Aoyama::update()
 
 void Aoyama::fixedUpdate()
 {
-	transform.setPosition({ 300,300 });
+	//transform.setPosition({ 300,300 });
 }
 
 void Aoyama::draw()
@@ -61,7 +61,7 @@ Aoyama::Aoyama() : Object("Aoyama")
 {
 }
 
-PlaceHolderScene::PlaceHolderScene() : Scene("PlaceHolderScene")
+PlaceHolderScene::PlaceHolderScene(std::string str) : Scene(str)
 {
 	initSM(std::make_shared<MySceneState>());
 }
@@ -70,7 +70,6 @@ void PlaceHolderScene::initScene()
 {
 	objectManager.addObject(new Aoyama);
 	BE::Logger::log("init");
-	TIME.fixedDt = 1000;
 }
 
 MySceneState::MySceneState()
@@ -85,16 +84,7 @@ void MySceneState::onEnter()
 
 void MySceneState::update()
 {
-	try {
-		if (INPUT_MANAGER.keyReleased("Active"))
-		{
-			TIME.timeScale += 1;
-		}
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+
 }
 
 void MySceneState::onExit()

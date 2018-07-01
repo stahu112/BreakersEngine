@@ -55,7 +55,7 @@ namespace BE
 		 * @brief Called when the scene is about to change
 		 *
 		 */
-		virtual void onChangeScene() {}
+		virtual void onChangeScene() { objectManager.destroyAllObjects(); }
 		/*!
 		 * @brief Construct the scene with given tag
 		 * @param tag_ - name of a scene

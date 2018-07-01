@@ -2,9 +2,9 @@
 	<Config>
 	
 		<WindowSettings>
-			<Width>1920</Width>
-			<Height>1080</Height>
-			<Fullscreen>TRUE</Fullscreen>
+			<Width>1280</Width>
+			<Height>720</Height>
+			<Fullscreen>FALSE</Fullscreen>
 		</WindowSettings>
 	
 		<RenderSettings>

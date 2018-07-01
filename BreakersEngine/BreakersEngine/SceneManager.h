@@ -19,8 +19,22 @@ namespace BE
 	{
 		std::map<std::string, std::shared_ptr<Scene>> sceneMap;
 
+		std::string strToChange{ "" };
+
+		bool fadeIn{ false };
+		bool fadeOut{ false };
+		bool noFadeOut{ false };
+
+		unsigned short startIn{ 255 };
+		unsigned short endIn{ 0 };
+		unsigned short startOut{ 0 };
+		unsigned short endOut{ 255 };
+		float fadeTimer{ 0 };
 
 	public:
+
+		sf::RectangleShape fader;
+
 		/*!
 		 * @brief Construct new SceneManager with initial scene
 		 * @param scn - First scene to load
@@ -54,7 +68,8 @@ namespace BE
 		 * @warning THROWS EXSceneWithNameNotFound if there's no scene with given tag
 		 */
 		void changeScene(std::string str);
-
+		void changeSceneFade(std::string str, bool noFadeOut = false);
+		void updateFader(float timer, sf::Vector2f size);
 		/*!
 		 * @brief Get Scene count
 		 *
