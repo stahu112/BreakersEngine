@@ -21,6 +21,8 @@ namespace BE
 
 		std::string strToChange{ "" };
 
+		float fadeTime{ .5f };
+
 		bool fadeIn{ false };
 		bool fadeOut{ false };
 		bool noFadeOut{ false };

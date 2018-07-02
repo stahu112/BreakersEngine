@@ -6,10 +6,10 @@
 BE::SceneManager::SceneManager() {
 	std::shared_ptr<Scene> scn = std::make_shared<Scene>();
 	addScene(scn);
+
+	//Here you add the new scenes to pool
 	addScene(std::make_shared<SplashScene>());
 	addScene(std::make_shared<PlaceHolderScene>());
-	addScene(std::make_shared<PlaceHolderScene>("1"));
-	addScene(std::make_shared<PlaceHolderScene>("2"));
 	currentScene.reset(scn.get());
 
 	fader.setFillColor(sf::Color::Black);
@@ -74,7 +74,7 @@ void BE::SceneManager::updateFader(float timer, sf::Vector2f size)
 		noFadeOut = false;
 	}
 
-	if (fadeIn && !fadeOut && fadeTimer < 0.5) {
+	if (fadeIn && !fadeOut && fadeTimer < fadeTime) {
 
 
 		fader.setSize(size);
@@ -83,11 +83,11 @@ void BE::SceneManager::updateFader(float timer, sf::Vector2f size)
 		endIn = 0;
 		startIn = 255;
 
-		color.a = startIn + (endIn - startIn) * (fadeTimer / 0.5);
+		color.a = startIn + (endIn - startIn) * (fadeTimer / fadeTime);
 
 
 		fader.setFillColor(color);
-		if (fadeTimer > 0.5) {
+		if (fadeTimer > fadeTime) {
 			fadeTimer = 0;
 			color.a = 0;
 			fader.setFillColor(color);
@@ -96,7 +96,7 @@ void BE::SceneManager::updateFader(float timer, sf::Vector2f size)
 	}
 	fader.setFillColor(color);
 
-	if (fadeOut && fadeTimer < 0.5) {
+	if (fadeOut && fadeTimer < fadeTime) {
 
 
 		fader.setSize(size);
@@ -106,10 +106,10 @@ void BE::SceneManager::updateFader(float timer, sf::Vector2f size)
 		startOut = 0;
 		endOut = 255;
 
-		color.a = startOut + (endOut - startOut) * (fadeTimer / 0.5);
+		color.a = startOut + (endOut - startOut) * (fadeTimer / fadeTime);
 
 		fader.setFillColor(color);
-		if (fadeTimer > 0.5) {
+		if (fadeTimer > fadeTime) {
 			fadeTimer = 0;
 			fadeOut = false;
 			color.a = 255;
