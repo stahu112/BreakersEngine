@@ -15,11 +15,6 @@ void Aoyama::update()
 		snd.pause();
 	}
 
-	if (INPUT_MANAGER.mButtonReleased("M1"))
-	{
-		SCENE_MANAGER.changeSceneFade("1");
-	}
-
 	sp.setPosition(this->transform.getPosition());
 	sp.setRotation(this->transform.getRotation());
 }
