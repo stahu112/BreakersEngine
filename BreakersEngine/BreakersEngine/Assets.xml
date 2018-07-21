@@ -1,7 +1,6 @@
  <?xml version = '1.0' encoding = 'UTF-8'?>
     <ResourceList>
             <Textures>
-                <Texture name="Aoyama" path="Resources/Textures/aoy.jpg"/>
 				<Texture name="Anim" path="Resources/Textures/runningcat.png"/>
 				<Texture name="Splash1" path="Resources/Textures/Splash1.png"/>
 				<Texture name="Splash2" path="Resources/Textures/Splash2.png"/>
